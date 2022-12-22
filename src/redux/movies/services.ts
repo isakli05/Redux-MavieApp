@@ -10,7 +10,6 @@ export const getmoviesAsync = createAsyncThunk(
   }
 );
 
-
 export const getpopularMoviesAsync = createAsyncThunk("fetchMovies", async () => {
     const res = await axios.get<PopularMovies>(
       "http://localhost:9000/popularFilms"
