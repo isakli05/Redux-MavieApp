@@ -2,14 +2,14 @@ import { NavLink } from "react-router-dom";
 
 function Navbar() {
   return (
-    <nav className="w-full text-white gap-2 dark:bg-slate-900 flex p-4 justify-between items-center">
+    <nav className="w-full z-50 text-white gap-2 dark:bg-slate-900 flex p-4 justify-between items-center">
       <div className="hidden md:inline-flex space-x-2 mr-4 pl-4">
         <span className="md:block text-slate-900 dark:text-slate-100 font-bold text-2xl">
           <NavLink to={"/"}>LMDB</NavLink>
         </span>
       </div>
 
-      <ul className="hidden md:flex space-x-4 dark:text-slate-100 text-slate-900">
+      <ul className="hidden z-10 md:flex space-x-4 dark:text-slate-100 text-slate-900">
         {/* <li className="rounded-md dark:text-slate-100 hover:cursor-pointer dark:bg-blue-800  px-4 py-2">Home</li> */}
 
         <li className="px-4 py-2">
@@ -29,7 +29,7 @@ function Navbar() {
               <li className="hover:cursor-pointer">
                 <NavLink
                   className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
-                  to={"/movies"}
+                  to={"/movie"}
                 >
                   Popüler
                 </NavLink>
@@ -37,7 +37,7 @@ function Navbar() {
               <li className="hover:cursor-pointer">
                 <NavLink
                   className="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
-                  to={"/movies/now-playing"}
+                  to={"/movie/now-playing"}
                 >
                   Gösterimdekiler
                 </NavLink>
@@ -45,7 +45,7 @@ function Navbar() {
               <li className="hover:cursor-pointer">
                 <NavLink
                   className="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
-                  to={"/movies/upcoming"}
+                  to={"/movie/upcoming"}
                 >
                   Yakında
                 </NavLink>
