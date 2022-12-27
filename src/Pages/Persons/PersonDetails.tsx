@@ -31,7 +31,7 @@ function PersonDetails() {
           <div className="md:px-4">
             <h3 className="text-2xl font-semibold">Biyografi</h3>
             <p className="text-slate-600 dark:text-slate-400 leading-relaxed">           
-                {cast?.biography===""? "Biyografi bulunamadı" : cast?.biography}
+                {cast?.biography===""? "Biyografi bulunamadı" : cast?.biography.slice(0, 500) + "..."}
             </p>
             <h3 className="text-2xl mt-6 mb-3 font-semibold">Kişisel Bilgiler</h3>
             <ul className="flex flex-row gap-5">
