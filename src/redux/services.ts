@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import{PopularMovies} from "../types/popularMovies"
+// import{PopularMovies} from "../types/Movies"
 
 export const getmoviesAsync = createAsyncThunk(
   "movies/getmoviesAync",

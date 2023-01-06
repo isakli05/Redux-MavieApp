@@ -2,18 +2,21 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { MovieCredits } from "../../types/movieCredits";
-import MovieBanner from "../../components/Movies/MovieBanner";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
-import { fetchMovieCredits } from "../../redux/movies/movieCreditsSlice";
+import { fetchTvCredits } from "../../redux/tvShows/tvCreditSlice";
+import TvBanner from "../../components/Tvs/TvBanner";
 
-function MovieCast() {
+function TvCast() {
   const { id } = useParams<{ id: string }>();
-  const movieCredit = useAppSelector((state) => state.movieCredits.data);
-  const status = useAppSelector((state) => state.movieCredits.loading);
+  const tvCredit = useAppSelector((state) => state.tvCredits.data);
+  const status = useAppSelector((state) => state.tvCredits.loading);
   const dispatch = useAppDispatch();
   useEffect(() => {
-    dispatch(fetchMovieCredits(id));
+    dispatch(fetchTvCredits(id));
   }, []);
+
+  console.log(tvCredit);
+  
   const image = "https://image.tmdb.org/t/p/original";
   return (
     <>
@@ -48,17 +51,17 @@ function MovieCast() {
       ) : (
         <>
     <div className="dark:bg-slate-900">
-      <MovieBanner />
+      <TvBanner />
       <div className="flex">
         <div className="w-3/6">
           <h3 className="text-3xl text-left ml-16 text-zinc-600 font-semibold">
-            Oyuncu Kadrosu{" "}
+          Dizi Oyuncuları{" "}
             <span className="text-2xl font-thin">
-              ({movieCredit?.cast.length})
+              ({tvCredit?.cast.length})
             </span>
           </h3>
           <ul className="space-y-4 ml-16 mt-3">
-            {movieCredit?.cast.map((cast) => (
+            {tvCredit?.cast.map((cast) => (
               <li key={cast.id} className="flex items-center gap-3">
                 <Link className="flex gap-3" to={`/person/${cast.id}`}>
                   <img
@@ -82,13 +85,13 @@ function MovieCast() {
         </div>
         <div className="w-3/6">
           <h3 className="text-3xl text-left ml-16 text-zinc-600 font-semibold">
-            Kadro{" "}
+          Dizi Ekibi{" "}
             <span className="text-2xl font-thin">
-              ({movieCredit?.crew.length})
+              ({tvCredit?.crew.length})
             </span>
           </h3>
           <ul className="space-y-4 ml-16 mt-3">
-            {movieCredit?.crew.map((crew) => (
+            {tvCredit?.crew.map((crew) => (
               <li key={crew.id} className="flex items-center gap-3">
                 <Link className="flex gap-3" to={`/person/${crew.id}`}>
                   <img
@@ -118,4 +121,4 @@ function MovieCast() {
   );
 }
 
-export default MovieCast;
+export default TvCast;

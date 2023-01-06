@@ -17,6 +17,7 @@ function PersonDetails() {
   return (
     <div className="bg-white py-8 dark:bg-slate-900 dark:text-slate-100 text-slate-900 px-4 flex">
       <img
+loading="lazy"
         src={`https://image.tmdb.org/t/p/original${cast?.profile_path}`}
         alt=""
         className="rounded-md h-96 object-cover"

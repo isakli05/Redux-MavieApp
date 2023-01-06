@@ -15,7 +15,7 @@ function Movies() {
   }, []);
 
   return (
-    <>
+    <div className="dark:bg-slate-900">
       <aside className="px-10 py-2">
         <h2 className="text-2xl font-semibold">Popüler Filmler</h2>
       </aside>
@@ -26,7 +26,7 @@ function Movies() {
             className="cursor-pointer shadow dark:drop-shadow-2xl p-4 rounded"
           >
             <article className="flex flex-col">
-              <Link to={`/movie/${movie.id}`}>
+              <Link to={`/movie/${movie.id}-${movie.original_title.toLowerCase().replaceAll(".","-").replaceAll(",","-").replaceAll(" ","-").replaceAll("--","-").replace(":","").split(",",1)}`}>
                 <img
                   src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                   alt={movie.title}
@@ -51,7 +51,8 @@ function Movies() {
           type="button"
           onClick={() => dispatch(fetchMovies(nextPage))}
           disabled={status === "pending"}
-          className="bg-indigo-500 w-56 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+          className="bg-slate-900 hover:bg-slate-700 text-zinc-900 dark:text-zinc-100 w-56 border-0 py-2 px-6 focus:outline-none rounded text-lg font-bold
+          "
         >
           {status === "fulfilled" ? (
             "Daha Fazla Yükle"
@@ -78,7 +79,7 @@ function Movies() {
           )}
         </button>
       </div>
-    </>
+    </div>
   );
 }
 

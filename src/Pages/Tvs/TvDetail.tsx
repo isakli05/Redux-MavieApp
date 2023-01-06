@@ -4,26 +4,32 @@ import { Link, useParams } from "react-router-dom";
 import { fetchMovieCollect } from "../../redux/movies/movieCollectSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { MovieCollect } from "../../types/movieCollect";
-import { MovieDetails } from "../../types/movieDetails";
+import { TvDetails } from "../../types/tvsDetails";
 import MovieColletionBackDrop from "../../components/Movies/MovieColletionBackDrop";
-import MovieCredit from "../../components/Movies/MovieCredit";
-import MovieLabel from "../../components/Movies/MovieLabel";
-import MovieRecommendation from "../../components/Movies/MovieRecommendation";
-import { fetchMovieDetail } from "../../redux/movies/movieDetailSlice";
+import TvCredits from "../../components/Tvs/TvCredit";
+import TvRecommendation from "../../components/Tvs/TvRecommendation";
+import { fetchTvDetail } from "../../redux/tvShows/tvShowsDetailSlice";
+import TvLabel from "../../components/Tvs/TvLabel";
 
-
-function MovieDetail() {
+function TvDetail() {
   const { id } = useParams();
-  const movie_id = id?.split("-")[0];
+  const tv_id = id?.split("-")[0];
 
   const dispatch = useAppDispatch();
-  const movieDetail = useAppSelector((state) => state.movieDetail.data);
-  const status = useAppSelector((state) => state.movieDetail.loading);
+  const tvDetail = useAppSelector((state) => state.tvDetails.data);
+  const status = useAppSelector((state) => state.tvDetails.loading);
+const [tvKey, setTvKey] = useState([]);
   useEffect(() => {
-    dispatch(fetchMovieDetail(movie_id!));   
-  }, [dispatch, movie_id]);
+    dispatch(fetchTvDetail(tv_id!));
+    axios(
+      `https://api.themoviedb.org/3/tv/${tv_id}/keywords?api_key=a005a803cdec9237f52c2801d1f28661&language=tr-TR&include_adult=false`
+    )
+      .then((res) => res.data)
+      .then((data) => setTvKey(data))  
+  }, [dispatch, tv_id]);
 
-
+  console.log(tvDetail);
+  console.log(tvKey);
 
   return (
     <>
@@ -60,32 +66,30 @@ function MovieDetail() {
           <div className="flex px-4 py-8 md:py-6 flex-col md:flex-row text-slate-900 dark:text-slate-100 items-center  dark:bg-slate-900">
             <img
               loading="lazy"
-              src={`https://image.tmdb.org/t/p/original${movieDetail?.poster_path}`}
-              alt={`${movieDetail?.title}`}
+              src={`https://image.tmdb.org/t/p/original${tvDetail?.poster_path}`}
+              alt={`${tvDetail?.name}`}
               className="w-60 h-96 opacity-100 z-10 absolute mx-4 object-cover object-center rounded-md"
             />
 
             <figure className="w-full opacity-30 ">
               <img
                 loading="lazy"
-                src={`https://image.tmdb.org/t/p/original/${movieDetail?.backdrop_path}`}
+                src={`https://image.tmdb.org/t/p/original/${tvDetail?.backdrop_path}`}
                 className="w-full h-[460px] object-top object-cover rounded-lg"
-                alt={`${movieDetail?.backdrop_path}`}
+                alt={`${tvDetail?.backdrop_path}`}
               />
             </figure>
             <div className="w-max p-4 space-y-4 absolute left-72">
               <h1 className="text-2xl font-semibold leading-tight">
-                {movieDetail?.title}
+                {tvDetail?.name}
                 <span className="text-3xl font-light">
                   {" "}
-                  ({movieDetail?.release_date.slice(0, 4)})
+                  ({tvDetail?.first_air_date.slice(0, 4)})
                 </span>
               </h1>
-              <p className="w-[700px] text-slate-600">
-                {movieDetail?.overview}
-              </p>
+              <p className="w-[700px] text-slate-600">{tvDetail?.overview}</p>
               <p className="text-sm text-slate-600">
-                {movieDetail?.genres.map((genre) => (
+                {tvDetail?.genres.map((genre) => (
                   <span key={genre.id}>{genre.name} </span>
                 ))}
               </p>
@@ -95,30 +99,33 @@ function MovieDetail() {
           <div className="px-4  space-y-4 bg-white dark:bg-slate-900 text-gray-900 dark:text-gray-100 ">
             <div className="lg:flex gap-x-8">
               <article className="w-9/12 dark:border-gray-700">
-                <MovieCredit id={id} />
-                {movieDetail?.belongs_to_collection !== null ? (
+                <TvCredits id={id} />
+
+                <Link to={`/tv/${id}/cast`}>
+                  <li className="flex flex-col font-semibold text-1xl text-left mt-3 hover:text-slate-400 duration-200 ">
+                    Tüm Oyuncular ve Ekip
+                  </li>
+                </Link>
+                {/* {tvDetail?. !== null ? (
                   <>
                     <MovieColletionBackDrop
-                      title={movieDetail?.original_title}
-                      id={movieDetail?.belongs_to_collection.id}
-                    />
+                      title={tvDetail?.original_title}
+                      id={tvDetail?.networks.id}
+                    /> 
                   </>
                 ) : (
                   <></>
                 )}               
-                
-              <MovieRecommendation id={id} />
+                */}
+                <TvRecommendation id={id} />
               </article>
 
               <aside className="w-3/12 divider grid gap-1">
                 <article className="w-full mt-4 grid grid-cols-1 pb-4">
                   <figure className="space-y-1">
                     <h3 className="text-slate-700 dark:text-slate-400 font-bold">
-                      Orijinal Başlık
+                      Film Detayları
                     </h3>
-                    <p className="text-slate-700 dark:text-slate-400 font-light text-sm">
-                      {movieDetail?.original_title}
-                    </p>
                   </figure>
                 </article>
                 <article className="w-full  grid grid-cols-1 pb-4">
@@ -127,58 +134,53 @@ function MovieDetail() {
                       Durum
                     </h3>
                     <p className="text-slate-700 dark:text-slate-400 font-light text-sm">
-                      {movieDetail?.status === "Released"
-                        ? "Vizyonda"
-                        : "Vizyonda Değil"}
+                      {tvDetail?.status === "Returning Series"
+                        ? "Yeni Sezonu Olan Diziler"
+                        : "Devam Ediyor"}
+                    </p>
+                  </figure>
+                </article>
+                <article className="w-full space-y-2 grid grid-cols-1 pb-4">
+                <h3 className="text-slate-700 dark:text-slate-400 font-bold">
+                        {tvDetail?.networks.length !== 0 && tvDetail?.networks.length !== 1 ?"Ağlar":"Ağ"}
+                      </h3>
+                  {tvDetail?.networks.map((network) => (
+                    <figure key={network.id} className="space-y-2">                    
+                      <Link key={network.id} to={`/network/${network.id}`}>
+                        <img
+                          loading="lazy"
+                          className="h-7  rounded-md"
+                          src={`https://image.tmdb.org/t/p/original/${network.logo_path}`}
+                          alt={`${network.name}`}
+                        />
+                      </Link>
+                    </figure>
+                  ))}
+                </article>
+                <article className="w-full  grid grid-cols-1 pb-4">
+                  <figure className="space-y-1">
+                    <h3 className="text-slate-700 dark:text-slate-400 font-bold">
+                      Tip
+                    </h3>
+                    <p className="text-slate-700 dark:text-slate-400 font-light text-sm">
+                      {tvDetail?.type}
                     </p>
                   </figure>
                 </article>
                 <article className="w-full  grid grid-cols-1 pb-4">
                   <figure className="space-y-1">
                     <h3 className="text-slate-700 dark:text-slate-400 font-bold">
-                      Orijinal Dili
+                      Orjinal Dili
                     </h3>
                     <p className="text-slate-700 dark:text-slate-400 font-light text-sm">
-                      {movieDetail?.original_language === "en"
-                        ? "İngilizce"
-                        : "Türkçe"}
+                      {tvDetail?.spoken_languages.map(
+                        (language) => language.name
+                      )}
                     </p>
                   </figure>
                 </article>
                 <article className="w-full  grid grid-cols-1 pb-4">
-                  <figure className="space-y-1">
-                    <h3 className="text-slate-700 dark:text-slate-400 font-bold">
-                      Bütçe
-                    </h3>
-                    <p className="text-slate-700 dark:text-slate-400 font-light text-sm">
-                      {movieDetail?.budget === 0
-                        ? "Bilinmiyor"
-                        : "$" +
-                          movieDetail?.budget
-                            .toString()
-                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                            .concat(".00")}
-                    </p>
-                  </figure>
-                </article>
-                <article className="w-full  grid grid-cols-1 pb-4">
-                  <figure className="space-y-1">
-                    <h3 className="text-slate-700 dark:text-slate-400 font-bold">
-                      Kazanç
-                    </h3>
-                    <p className="text-slate-700 dark:text-slate-400 font-light text-sm">
-                      {movieDetail?.revenue === 0
-                        ? "Bilinmiyor"
-                        : "$" +
-                          movieDetail?.revenue
-                            .toString()
-                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                            .concat(".00")}
-                    </p>
-                  </figure>
-                </article>
-                <article className="w-full  grid grid-cols-1 pb-4">
-                  <MovieLabel />
+                  <TvLabel />
                 </article>
               </aside>
             </div>
@@ -189,4 +191,4 @@ function MovieDetail() {
   );
 }
 
-export default MovieDetail;
+export default TvDetail;
