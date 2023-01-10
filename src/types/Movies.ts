@@ -21,3 +21,10 @@ export interface Movies {
     total_results: number;
     total_pages: number;
 }
+
+export interface PopularMovies {
+    page: number;
+    results: Result[];
+    total_results: number;
+    total_pages: number;
+}
