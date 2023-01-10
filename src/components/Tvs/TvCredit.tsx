@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { image } from "../../helper";
 
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { fetchTvCredits } from "../../redux/tvShows/tvCreditSlice";
@@ -17,7 +18,7 @@ function TvCredit({ id }: TvCreditsProps) {
     dispatch(fetchTvCredits(id!));
   }, []);
 
-  const image = "https://image.tmdb.org/t/p/original";
+  
   return (
     <div className="bg-white py-2 dark:bg-slate-900 dark:text-slate-100 text-slate-900">
       <h3 className="text-3xl text-left text-zinc-600 font-semibold">

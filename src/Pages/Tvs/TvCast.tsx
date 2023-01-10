@@ -5,6 +5,7 @@ import { MovieCredits } from "../../types/movieCredits";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { fetchTvCredits } from "../../redux/tvShows/tvCreditSlice";
 import TvBanner from "../../components/Tvs/TvBanner";
+import { image } from "../../helper";
 
 function TvCast() {
   const { id } = useParams<{ id: string }>();
@@ -17,7 +18,7 @@ function TvCast() {
 
   console.log(tvCredit);
   
-  const image = "https://image.tmdb.org/t/p/original";
+  
   return (
     <>
       {status==="pending" ? (

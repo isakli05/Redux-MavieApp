@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
+import { image } from "../../helper";
 import { Tvs } from "../../types/tvs";
 
 function TvKeyList() {
@@ -31,7 +32,7 @@ function TvKeyList() {
       .then((data) => setMovieKeyList(data))
       .finally(() => setStatus(false));
   }, []);
-  const image = "https://image.tmdb.org/t/p/original";
+  
 
   return (
     <>

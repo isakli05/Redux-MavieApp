@@ -21,7 +21,7 @@ function TvSeasonListBanner({ tv_id }: { tv_id: string }) {
   }, []);
 
   return (
-    <>
+    <>    
       <div className="flex items-center p-5 h-32 my-5 bg-slate-600">
         <div className="flex items-center ml-11">
           <Link className="flex" to={`/tv/${tv_id}`}>
@@ -37,7 +37,7 @@ function TvSeasonListBanner({ tv_id }: { tv_id: string }) {
                   {tvDetail?.name}{" "}
                 </h3>
                 <h5 className="text-3xl font-thin">
-                  ({tvDetail?.first_air_date.slice(0, 4)})
+                  ({tvDetail?.first_air_date!==""?tvDetail?.first_air_date.slice(0,4):""})
                 </h5>
               </div>
               <span className="text-slate-700 hover:text-slate-300">

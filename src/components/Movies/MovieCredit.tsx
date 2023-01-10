@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { image } from "../../helper";
 import { fetchMovieCredits } from "../../redux/movies/movieCreditsSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { MovieCredits } from "../../types/movieCredits";
@@ -16,7 +17,7 @@ function MovieCredit({ id }: MovieCreditsProps) {
   useEffect(() => {
     dispatch(fetchMovieCredits(id!));
   }, []);
-  const image = "https://image.tmdb.org/t/p/original";
+  
   return (
     <div className="bg-white py-2 dark:bg-slate-900 dark:text-slate-100 text-slate-900">      
         <h3 className="text-3xl text-left text-zinc-600 font-semibold">

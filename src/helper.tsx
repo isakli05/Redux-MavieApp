@@ -1,3 +1,5 @@
+export const image = "https://image.tmdb.org/t/p/original";
+
 export let air_date = (date: string) =>
   new Date(String(date)).toLocaleDateString("tr-TR", {
     year: "numeric",

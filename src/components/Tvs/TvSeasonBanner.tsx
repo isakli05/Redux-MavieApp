@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { image } from "../../helper";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { fetchTvDetail } from "../../redux/tvShows/tvShowsDetailSlice";
 
@@ -20,7 +21,11 @@ function TvSeasonBanner({ tv_id }: { tv_id: string }) {
             <img
               loading="lazy"
               className="w-16 mr-2"
-              src={`https://image.tmdb.org/t/p/original/${tv_season?.poster_path}`}
+              src={`${
+                tv_season?.poster_path === null
+                  ? "/public/assets/tv_null.svg"
+                  : `${image}${tv_season?.poster_path}`
+              }`}
               alt={tv_season?.name}
             />
           </Link>
@@ -30,7 +35,7 @@ function TvSeasonBanner({ tv_id }: { tv_id: string }) {
                 <h3 className="font-semibold text-3xl hover:text-slate-300">{tv_season?.name} </h3>
               </Link>
               <h5 className="text-3xl font-thin">
-                ({tv_season?.air_date.slice(0, 4)})
+              {tv_season?.air_date?"("+tv_season?.air_date?.slice(0,4)+")":""}
               </h5>
             </div>
             <Link to={`/tv/${tv_id}/seasons`}>

@@ -5,6 +5,7 @@ import { MovieCredits } from "../../types/movieCredits";
 import MovieBanner from "../../components/Movies/MovieBanner";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { fetchMovieCredits } from "../../redux/movies/movieCreditsSlice";
+import { image } from "../../helper";
 
 function MovieCast() {
   const { id } = useParams<{ id: string }>();
@@ -14,7 +15,7 @@ function MovieCast() {
   useEffect(() => {
     dispatch(fetchMovieCredits(id));
   }, []);
-  const image = "https://image.tmdb.org/t/p/original";
+  
   return (
     <>
       {status==="pending" ? (

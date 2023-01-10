@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+import { image } from "../../helper";
 import { fetchMovieCollect } from "../../redux/movies/movieCollectSlice";
 import { fetchMovieCredits } from "../../redux/movies/movieCreditsSlice";
 import { fetchMovieDetail } from "../../redux/movies/movieDetailSlice";
@@ -15,7 +16,7 @@ function MovieCollection() {
   const movieCollect = useAppSelector((state) => state.movieCollect.data);
   const movieDetail = useAppSelector((state) => state.movieDetail.data);
   const movieId = movieCollect?.parts[0].id;
-  const image = "https://image.tmdb.org/t/p/original";
+  
 
   useEffect(() => {
     window.scrollTo(0, 0)

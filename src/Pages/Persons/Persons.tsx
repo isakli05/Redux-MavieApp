@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { fetchPersons } from "../../redux/persons/personSlice";
 import { Link } from "react-router-dom";
+import { image } from "../../helper";
 
 function Persons() {
   const persons = useAppSelector((state) => state.persons);
@@ -13,7 +14,7 @@ function Persons() {
       dispatch(fetchPersons());
     }
   }, []);
-  const image = "https://image.tmdb.org/t/p/original";
+  
 
   return (
     <>
@@ -29,7 +30,6 @@ function Persons() {
           <article className="flex flex-col">
             <Link to={`/person/${person.id}`}>
               <img
-loading="lazy"
                 src={`${person?.profile_path===null?'/public/assets/nullUser.svg':`${image}${person?.profile_path}`}`}
                 alt={person.name}
                 className="w-full h-56 object-cover object-center rounded-md"

@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { image } from "../../helper";
 import { Tvs } from "../../types/tvs";
 
 type TvRecommendationProps = {
@@ -18,7 +19,7 @@ function TvRecommendation({ id }: TvRecommendationProps) {
       .then((data) => setMovieRecom(data));
   }, []);
 
-  const image = "https://image.tmdb.org/t/p/original";
+  
   return (
     <div>
       <h3 className="mt-6 mb-4 text-2xl text-left text-zinc-600 font-semibold">
