@@ -1,15 +1,12 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { fetchMovieCollect } from "../../redux/movies/movieCollectSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
-import { MovieCollect } from "../../types/movieCollect";
-import { TvDetails } from "../../types/tvsDetails";
-import MovieColletionBackDrop from "../../components/Movies/MovieColletionBackDrop";
 import TvCredits from "../../components/Tvs/TvCredit";
 import TvRecommendation from "../../components/Tvs/TvRecommendation";
 import { fetchTvDetail } from "../../redux/tvShows/tvShowsDetailSlice";
 import TvLabel from "../../components/Tvs/TvLabel";
+import TvSeasonsBackdrops from "../../components/Tvs/TvSeasonsBackdrops";
 
 function TvDetail() {
   const { id } = useParams();
@@ -29,8 +26,7 @@ const [tvKey, setTvKey] = useState([]);
   }, [dispatch, tv_id]);
 
   console.log(tvDetail);
-  console.log(tvKey);
-
+  
   return (
     <>
       {status === "pending" ? (
@@ -102,21 +98,23 @@ const [tvKey, setTvKey] = useState([]);
                 <TvCredits id={id} />
 
                 <Link to={`/tv/${id}/cast`}>
-                  <li className="flex flex-col font-semibold text-1xl text-left mt-3 hover:text-slate-400 duration-200 ">
+                  <li className="flex flex-col font-semibold text-1xl text-left my-6 hover:text-slate-400 duration-200 ">
                     Tüm Oyuncular ve Ekip
                   </li>
                 </Link>
-                {/* {tvDetail?. !== null ? (
-                  <>
-                    <MovieColletionBackDrop
-                      title={tvDetail?.original_title}
-                      id={tvDetail?.networks.id}
+                 {tvDetail?.seasons !== null ? (
+                   <>
+                   <hr />
+                    <TvSeasonsBackdrops
+                      title={tvDetail?.name}
+                      tv_id={id}
+                      season_number={tvDetail?.last_episode_to_air.season_number.toString()}
                     /> 
                   </>
                 ) : (
                   <></>
                 )}               
-                */}
+                
                 <TvRecommendation id={id} />
               </article>
 
@@ -173,9 +171,8 @@ const [tvKey, setTvKey] = useState([]);
                       Orjinal Dili
                     </h3>
                     <p className="text-slate-700 dark:text-slate-400 font-light text-sm">
-                      {tvDetail?.spoken_languages.map(
-                        (language) => language.name
-                      )}
+                      //TODO:dil kodu uzun dil adına çevrilecek
+                      {tvDetail?.original_language}
                     </p>
                   </figure>
                 </article>

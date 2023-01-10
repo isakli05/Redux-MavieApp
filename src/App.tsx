@@ -1,6 +1,5 @@
 import Navbar from "./components/Navbar";
 import { Route, Routes } from "react-router-dom";
-import { fetchMovies } from "./redux/movies/moviesSlice";
 import { useAppDispatch, useAppSelector } from "./redux/store";
 import Home from "./Pages/Home";
 import Movies from "./Pages/Movies/Movies";
@@ -24,6 +23,8 @@ import TvDetail from "./Pages/Tvs/TvDetail";
 import NetworkList from "./Pages/Tvs/NetworkList";
 import TvCast from "./Pages/Tvs/TvCast";
 import TvKeyList from "./Pages/Tvs/TvKeyList";
+import TvSeasonDetail from "./Pages/Tvs/TvSeasonDetail";
+import TvSeasonsList from "./Pages/Tvs/TvSeasonsList";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -49,6 +50,9 @@ function App() {
           <Route path="airing-today" element={<AiringToday />} />
           <Route path="on-the-air" element={<OnAir />} />
           <Route path=":id" element={<TvDetail />} />
+          <Route path=":tv_id/season/:season_number" element={<TvSeasonDetail />} />
+          <Route path=":tv_id/seasons" element={<TvSeasonsList />} />
+          {/* <Route path=":tv_id/season/:season_number/episode/:episode_number" element={<TvSeasonEpisodeDetail />} /> */}
           <Route path=":id/cast" element={<TvCast />} />
           <Route path="*" element={<Tv404 />} />
         </Route>

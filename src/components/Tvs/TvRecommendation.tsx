@@ -24,7 +24,7 @@ function TvRecommendation({ id }: TvRecommendationProps) {
       <h3 className="mt-6 mb-4 text-2xl text-left text-zinc-600 font-semibold">
         Tavsiyeler
       </h3>
-      <ul className="flex gap-4 overflow-scroll overflow-y-hidden">
+      <ul className="flex  overflow-scroll overflow-y-hidden">
         {movieRecom?.results.map((tv) => (
           <Link
             key={tv.id}
@@ -40,7 +40,7 @@ function TvRecommendation({ id }: TvRecommendationProps) {
             <li className="flex flex-col w-72 shadow rounded-lg mb-2">
               <figure className="flex-col space-y-2">
                 <img
-                  className="h-40 w-72 object-cover object-center rounded-md"
+                  className="h-36 w-64 object-cover object-top rounded-md"
                   src={`${
                     tv?.poster_path === null
                       ? "/public/assets/nullUser.svg"
@@ -49,7 +49,7 @@ function TvRecommendation({ id }: TvRecommendationProps) {
                   alt=""
                 />
 
-                <p className="mt-2 w-70 truncate text-slate-700 dark:text-slate-400 text-md font-l">
+                <p className="mt-2 w-60 truncate text-slate-700 dark:text-slate-400 text-md font-l">
                   {tv?.name}
                 </p>
               </figure>

@@ -4,9 +4,19 @@ import { Link, useLocation, useParams } from "react-router-dom";
 import { Tvs } from "../../types/tvs";
 
 function TvKeyList() {
-  const { key_id } = useParams();
+  const { key_id } = useParams();  
   const id = key_id?.split("-")[0];
-  const name = key_id?.split("-")[1];
+  const location = useLocation();
+  const name =
+    location.pathname.split("/")[2].split("-")[1] +
+    " " +
+    [location.pathname.split("/")[2].split("-")[2]] +
+    " " +
+    [location.pathname.split("/")[2].split("-")[3]] +
+    " " +
+    [location.pathname.split("/")[2].split("-")[4]] +
+    " " +
+    [location.pathname.split("/")[2].split("-")[5]];
 
 
   const [tvKeyList, setMovieKeyList] = useState<Tvs>();
@@ -21,6 +31,7 @@ function TvKeyList() {
       .then((data) => setMovieKeyList(data))
       .finally(() => setStatus(false));
   }, []);
+  const image = "https://image.tmdb.org/t/p/original";
 
   return (
     <>
@@ -73,8 +84,12 @@ function TvKeyList() {
                   <Link to={`/tv/${tv.id}`}>
                     <img
                       loading="lazy"
-                      className="h-36 rounded-md"
-                      src={`https://image.tmdb.org/t/p/original/${tv?.poster_path}`}
+                      className="h-36 w-24 rounded-md"
+                      src={`${
+                        tv?.poster_path === null
+                          ? "/public/assets/tv_null.svg"
+                          : `${image}${tv?.poster_path}`
+                      }`}
                       alt={`${tv?.original_name}`}
                     />
                   </Link>

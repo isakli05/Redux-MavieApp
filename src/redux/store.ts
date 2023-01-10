@@ -8,6 +8,7 @@ import nowMoviesSlice from "./movies/nowMoviesSlice";
 import upcomingMoviesSlice from "./movies/upcomingMoviesSlice";
 import personSlice from "./persons/personSlice";
 import tvCreditsSlice from "./tvShows/tvCreditSlice";
+import tvSeasonsSlice from "./tvShows/tvSeasonsSlice";
 import tvDetailSlice from "./tvShows/tvShowsDetailSlice";
 import tvShowsSlice from "./tvShows/tvShowsSlice";
 
@@ -23,6 +24,7 @@ export const store = configureStore({
     tvs: tvShowsSlice,
     tvDetails: tvDetailSlice,
     tvCredits: tvCreditsSlice,
+    tvSeasons:tvSeasonsSlice
   },
 });
 
