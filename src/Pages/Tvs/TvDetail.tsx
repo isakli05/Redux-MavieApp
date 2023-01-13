@@ -7,10 +7,13 @@ import TvRecommendation from "../../components/Tvs/TvRecommendation";
 import { fetchTvDetail } from "../../redux/tvShows/tvShowsDetailSlice";
 import TvLabel from "../../components/Tvs/TvLabel";
 import TvSeasonsBackdrops from "../../components/Tvs/TvSeasonsBackdrops";
+import { languages } from "../../languages-list";
+import { image } from "../../helper";
 
 function TvDetail() {
   const { id } = useParams();
   const tv_id = id?.split("-")[0];
+  const name = id?.split("-")[1];
 
   const dispatch = useAppDispatch();
   const tvDetail = useAppSelector((state) => state.tvDetails.data);
@@ -24,8 +27,6 @@ const [tvKey, setTvKey] = useState([]);
       .then((res) => res.data)
       .then((data) => setTvKey(data))  
   }, [dispatch, tv_id]);
-
-  console.log(tvDetail);
   
   return (
     <>
@@ -59,20 +60,26 @@ const [tvKey, setTvKey] = useState([]);
         </div>
       ) : (
         <>
-          <div className="flex px-4 py-8 md:py-6 flex-col md:flex-row text-slate-900 dark:text-slate-100 items-center  dark:bg-slate-900">
+          <div className="flex px-4 py-8 md:py-6 flex-col md:flex-row text-slate-900 dark:text-slate-100 items-center  dark:bg-slate-900">            
             <img
               loading="lazy"
-              src={`https://image.tmdb.org/t/p/original${tvDetail?.poster_path}`}
-              alt={`${tvDetail?.name}`}
+              src={`${
+                tvDetail?.poster_path === ""?
+                "": 
+                `${image}${tvDetail?.poster_path}`
+              }`}
+              alt={`${tvDetail?.name===null?"wqewq":"xcvcxvx"}`}
               className="w-60 h-96 opacity-100 z-10 absolute mx-4 object-cover object-center rounded-md"
             />
 
-            <figure className="w-full opacity-30 ">
+            <figure className="w-full opacity-30">
               <img
                 loading="lazy"
-                src={`https://image.tmdb.org/t/p/original/${tvDetail?.backdrop_path}`}
+                src={`${
+                  tvDetail?.backdrop_path === ""?
+                  "":`${image}${tvDetail?.backdrop_path}`}`}
                 className="w-full h-[460px] object-top object-cover rounded-lg"
-                alt={`${tvDetail?.backdrop_path}`}
+                alt={`${tvDetail?.backdrop_path===null?"":""}`}
               />
             </figure>
             <div className="w-max p-4 space-y-4 absolute left-72">
@@ -83,8 +90,8 @@ const [tvKey, setTvKey] = useState([]);
                   ({tvDetail?.first_air_date.slice(0, 4)})
                 </span>
               </h1>
-              <p className="w-[700px] text-slate-600">{tvDetail?.overview}</p>
-              <p className="text-sm text-slate-600">
+              <p className="w-[700px] text-slate-300">{tvDetail?.overview}</p>
+              <p className="text-sm text-slate-200">
                 {tvDetail?.genres.map((genre) => (
                   <span key={genre.id}>{genre.name} </span>
                 ))}
@@ -108,30 +115,30 @@ const [tvKey, setTvKey] = useState([]);
                     <TvSeasonsBackdrops
                       title={tvDetail?.name}
                       tv_id={id}
-                      season_number={tvDetail?.last_episode_to_air.season_number.toString()}
+                      season_number={tvDetail?.last_episode_to_air?.season_number.toString()}
                     /> 
                   </>
                 ) : (
                   <></>
                 )}               
                 
-                <TvRecommendation id={id} />
+                <TvRecommendation id={id} name={tvDetail?.name}/>
               </article>
 
               <aside className="w-3/12 divider grid gap-1">
                 <article className="w-full mt-4 grid grid-cols-1 pb-4">
                   <figure className="space-y-1">
-                    <h3 className="text-slate-700 dark:text-slate-400 font-bold">
+                    <h3 className="text-slate-300 dark:text-slate-400 font-bold">
                       Film Detayları
                     </h3>
                   </figure>
                 </article>
                 <article className="w-full  grid grid-cols-1 pb-4">
                   <figure className="space-y-1">
-                    <h3 className="text-slate-700 dark:text-slate-400 font-bold">
+                    <h3 className="text-slate-300 dark:text-slate-400 font-bold">
                       Durum
                     </h3>
-                    <p className="text-slate-700 dark:text-slate-400 font-light text-sm">
+                    <p className="text-slate-300 dark:text-slate-400 font-light text-sm">
                       {tvDetail?.status === "Returning Series"
                         ? "Yeni Sezonu Olan Diziler"
                         : "Devam Ediyor"}
@@ -139,7 +146,7 @@ const [tvKey, setTvKey] = useState([]);
                   </figure>
                 </article>
                 <article className="w-full space-y-2 grid grid-cols-1 pb-4">
-                <h3 className="text-slate-700 dark:text-slate-400 font-bold">
+                <h3 className="text-slate-300 dark:text-slate-400 font-bold">
                         {tvDetail?.networks.length !== 0 && tvDetail?.networks.length !== 1 ?"Ağlar":"Ağ"}
                       </h3>
                   {tvDetail?.networks.map((network) => (
@@ -170,9 +177,8 @@ const [tvKey, setTvKey] = useState([]);
                     <h3 className="text-slate-700 dark:text-slate-400 font-bold">
                       Orjinal Dili
                     </h3>
-                    <p className="text-slate-700 dark:text-slate-400 font-light text-sm">
-                      //TODO:dil kodu uzun dil adına çevrilecek
-                      {tvDetail?.original_language}
+                    <p className="text-slate-700 dark:text-slate-400 font-light text-sm">                      
+                      {languages.filter(lang => lang.code === tvDetail?.original_language).map(lang => lang.name)}                      
                     </p>
                   </figure>
                 </article>

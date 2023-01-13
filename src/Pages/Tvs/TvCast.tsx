@@ -55,7 +55,7 @@ function TvCast() {
       <TvBanner />
       <div className="flex">
         <div className="w-3/6">
-          <h3 className="text-3xl text-left ml-16 text-zinc-600 font-semibold">
+          <h3 className="text-3xl text-left ml-16 text-zinc-300 font-semibold">
           Dizi Oyuncuları{" "}
             <span className="text-2xl font-thin">
               ({tvCredit?.cast.length})
@@ -76,7 +76,7 @@ function TvCast() {
                     alt={cast.name}
                   />
                   <div>
-                    <h3 className="font-semibold">{cast.name}</h3>
+                    <h3 className="font-semibold text-gray-100">{cast.name}</h3>
                     <p>{cast.character}</p>
                   </div>
                 </Link>
@@ -85,7 +85,7 @@ function TvCast() {
           </ul>
         </div>
         <div className="w-3/6">
-          <h3 className="text-3xl text-left ml-16 text-zinc-600 font-semibold">
+          <h3 className="text-3xl text-left ml-16 text-zinc-300 font-semibold">
           Dizi Ekibi{" "}
             <span className="text-2xl font-thin">
               ({tvCredit?.crew.length})
@@ -105,9 +105,10 @@ function TvCast() {
                     }`}
                     alt={crew.name}
                   />
+                  
                   <div>
-                    <h3 className="font-semibold">{crew.name}</h3>
-                    <p>{crew.known_for_department}</p>
+                    <h3 className="font-semibold text-gray-100">{crew.name}</h3>
+                    <p className="text-zinc-300">{crew.known_for_department}</p>
                   </div>
                 </Link>
               </li>

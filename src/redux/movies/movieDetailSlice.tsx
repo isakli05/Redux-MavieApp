@@ -21,7 +21,7 @@ export const fetchMovieDetail = createAsyncThunk(
   "fetchMovieDetail",
   async (movie_id?:string) => {
     const res = await axios<MovieDetails>(
-      `https://api.themoviedb.org/3/movie/${movie_id}?api_key=a005a803cdec9237f52c2801d1f28661&language=tr-TR`
+      `https://api.themoviedb.org/3/movie/${movie_id}?api_key=a005a803cdec9237f52c2801d1f28661&language=tr-TR&adult=false`
       // &append_to_response=videos,images,credits,recommendations,similar,external_ids,keywords,release_dates,translations,watch/providers&include_image_language=en,null&watch_region=US
     );
     return res.data;

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import { air_date } from "../../helper";
+import { air_date, image } from "../../helper";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { fetchTvSeasons } from "../../redux/tvShows/tvSeasonsSlice";
 
@@ -22,7 +22,7 @@ function TvSeasonsBackdrops({ tv_id, title, season_number }: TvSeasonsProps) {
   const date=air_date(String(tvSeasons?.air_date))
   return (
     <div className="mt-10 relative">
-      <h3 className="text-2xl mb-5 text-left text-zinc-600 font-semibold">
+      <h3 className="text-2xl mb-5 text-left text-zinc-300 font-semibold">
         Şuanki Sezon
       </h3>
       <figure className="w-full ">
@@ -32,8 +32,12 @@ function TvSeasonsBackdrops({ tv_id, title, season_number }: TvSeasonsProps) {
         >
           <img
             loading="lazy"
-            src={`https://image.tmdb.org/t/p/original/${tvSeasons?.poster_path}`}
-            className="h-48 object-top object-cover rounded-lg"
+            src={`${
+                      tvSeasons?.poster_path === null
+                        ? "/public/assets/tv_null.svg"
+                        : `${image}${tvSeasons?.poster_path}`
+                    }`}
+            className="h-48 w-32 object-top object-cover rounded-lg"
             alt={`${tvSeasons?.name}`}
           />
         </Link>
@@ -50,9 +54,9 @@ function TvSeasonsBackdrops({ tv_id, title, season_number }: TvSeasonsProps) {
         </Link>
 
         <p className="text-md font-semibold leading-tight">
-          {tvSeasons?.air_date.slice(0, 4)} | {tvSeasons?.episodes.length} Bölüm
+          {tvSeasons?.air_date?.slice(0, 4)} | {tvSeasons?.episodes.length} Bölüm
         </p>
-        <h1 className="text-slate-600 mt-9 w-11/12">
+        <h1 className="text-slate-300 mt-9 w-11/12">
           {title} dizisinin {tvSeasons?.season_number}. sezonu {date}{" "}
           tarihinde gösterime girdi.
         </h1>

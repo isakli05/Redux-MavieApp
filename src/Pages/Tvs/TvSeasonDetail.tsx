@@ -52,7 +52,7 @@ function TvSeasonDetail() {
       </div>
     ) : (
       <>
-    <div className="mb-5">
+    <div className="mb-5 bg-slate-900">
       <TvSeasonBanner tv_id={tv_id!} />
       <div className="w-full">
         <h1 className="flex mt-10 text-2xl ml-10 font-medium leading-tight">
@@ -61,7 +61,7 @@ function TvSeasonDetail() {
           </span>
         </h1>
       </div>
-      <div className="text-gray-600 body-font overflow-hidden">
+      <div className="text-gray-100 body-font overflow-hidden">
         <div className="pb-6 mx-10">
           <div className="">
             {season_episodes?.episodes?.map((episodes) => (
@@ -85,7 +85,7 @@ function TvSeasonDetail() {
                 </div>
                 <div className="md:flex-grow ml-5">
                   <div className="flex justify-between">
-                    <h2 className="text-2xl font-medium text-gray-900 title-font">
+                    <h2 className="text-2xl font-medium text-gray-100 title-font">
                       {episodes.name}
                     </h2>
                     <h2 className="text-gray-500 text-sm">
@@ -94,7 +94,7 @@ function TvSeasonDetail() {
                       {timeConvert(episodes.runtime)}
                     </h2>
                   </div>
-                  <p className="leading-relaxed mt-6">{episodes.overview}</p>
+                  <p className="leading-relaxed mt-6 text-zinc-300">{episodes.overview}</p>
                 </div>
               </div>
             ))}

@@ -19,7 +19,7 @@ function Persons() {
   return (
     <>
     <aside className="px-10 py-2">
-      <h2 className="text-2xl font-semibold">Popüler Filmler</h2>
+      <h2 className="text-2xl font-semibold">Popüler Kişiler</h2>
     </aside>
     <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
       {persons.data?.results.map((person) => (
@@ -36,13 +36,13 @@ function Persons() {
                 loading="lazy"
               />
               <h3 className="mt-2">
-                <p className="text-gray-900 dark:text-black-100 title-font text-xl font-medium">
+                <p className="text-gray-100 dark:text-black-100 title-font text-xl font-medium">
                   {person.name}
                 </p>
               </h3>
             </Link>          
           </article>
-          <span className="font-extralight text-sm cursor-text">
+          <span className="font-extralight text-sm cursor-text text-gray-200">
               {person.known_for.map((movie) => 
               <span className="ml-1" key={movie.id}>{movie.title===null?movie.original_title:movie.title}<br/></span>
               )}
@@ -55,7 +55,7 @@ function Persons() {
         type="button"
         onClick={() => dispatch(fetchPersons(nextPage))}
         disabled={status === "pending"}
-        className="bg-indigo-500 w-56 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+        className="bg-slate-500 w-56 border-0 py-2 px-6 focus:outline-none hover:bg-slate-600 rounded text-lg text-zinc-300"
       >
         {status === "fulfilled" ? (
           "Daha Fazla Yükle"

@@ -32,7 +32,7 @@ function MovieColletionBackDrop({id,title}:MovieColletionProps) {
       <h1 className="text-3xl font-semibold leading-tight">
         Part of the {movieCollect?.name}
       </h1>
-      <h1 className="text-slate-600 mb-6 w-11/12">
+      <h1 className="text-slate-300 mb-6 w-11/12">
          {movieCollect?.parts.map((part) => (
               <span key={part.id}>{part.title} </span>
             ))} 

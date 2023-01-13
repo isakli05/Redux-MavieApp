@@ -21,7 +21,7 @@ export const fetchTvOnAir = createAsyncThunk(
   "fetchTvOnAir",
   async (page?: number) => {
     const res = await axios<Tvs>(
-      `https://api.themoviedb.org/3/tv/on_the_air?api_key=a005a803cdec9237f52c2801d1f28661&language=tr-TR&page=${page}`
+      `https://api.themoviedb.org/3/tv/on_the_air?api_key=a005a803cdec9237f52c2801d1f28661&language=tr-TR&page=${page}&adult=false`
     );
     return res.data;
   }
@@ -31,8 +31,7 @@ export const tvOnAirSlice = createSlice({
   name: "tvOnAir",
   initialState,
   reducers: {},
-  extraReducers: (builder) => {
-    //fetch Popular Tv Shows
+  extraReducers: (builder) => {    
     builder.addCase(fetchTvOnAir.pending, (state, action) => {
       state.loading = "pending";
       state.error = "";

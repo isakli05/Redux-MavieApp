@@ -22,7 +22,7 @@ function MovieRecommendation({ id }: MovieRecommendationProps) {
   
   return (
     <div>
-      <h3 className="mt-6 mb-4 text-2xl text-left text-zinc-600 font-semibold">
+      <h3 className="mt-6 mb-4 text-2xl text-left text-zinc-300 font-semibold">
         Tavsiyeler
       </h3>
       <ul className="flex gap-4 overflow-scroll overflow-y-hidden">

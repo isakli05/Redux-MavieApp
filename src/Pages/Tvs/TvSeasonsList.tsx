@@ -87,7 +87,7 @@ function TvSeasonsList() {
                           {season.overview === ""
                             ? `${tv_name?.toLocaleUpperCase()} ${
                                 season.season_number
-                              }.Sezon ${air_date(season.air_date)}`
+                              }.Sezon ${air_date(season.air_date)}'de gösterime girdi.`
                             : season.overview}
                         </p>
                       </div>

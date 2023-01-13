@@ -56,14 +56,14 @@ function MovieKeyList() {
                   </Link>
                 </div>
                 <div className="md:flex-grow ml-5">
-                  <h2 className="text-2xl font-medium text-gray-900 title-font">
+                  <h2 className="text-2xl font-medium text-gray-100 title-font">
                     {movie.title}
                   </h2>
                   <span className="text-gray-500 text-sm">
                     {movie.release_date}
                   </span>
 
-                  <p className="leading-relaxed mt-6">
+                  <p className="leading-relaxed mt-6 text-gray-200">
                     {movie.overview !== ""
                       ? movie.overview.slice(0, 260).concat("...")
                       : ""}

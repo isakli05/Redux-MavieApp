@@ -20,7 +20,7 @@ function MovieCredit({ id }: MovieCreditsProps) {
   
   return (
     <div className="bg-white py-2 dark:bg-slate-900 dark:text-slate-100 text-slate-900">      
-        <h3 className="text-3xl text-left text-zinc-600 font-semibold">
+        <h3 className="text-3xl text-left text-zinc-300 font-semibold">
           Başrol Oyuncuları
         </h3>
         <ul className="flex mt-3  overflow-scroll overflow-y-hidden">

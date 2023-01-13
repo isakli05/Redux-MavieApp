@@ -15,9 +15,9 @@ function NowPlaying() {
   }, []);
 
   return (
-    <>
+    <div className="bg-slate-900">
       <aside className="px-10 py-2">
-        <h2 className="text-2xl font-semibold">Gösterimdeki Filmler</h2>
+        <h2 className="text-2xl font-semibold text-zinc-300">Gösterimdeki Filmler</h2>
       </aside>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
         {nowMovies.data?.results.map((movie) => (
@@ -34,7 +34,7 @@ function NowPlaying() {
                   className="w-full h-full object-cover object-center rounded-md"               
                 />
                 <h3 className="m-2">
-                  <p className="text-gray-900 dark:text-black-100 title-font text-xl font-medium">
+                  <p className="text-gray-100 dark:text-black-100 title-font text-xl font-medium">
                     {movie.title}
                   </p>
                 </h3>
@@ -51,7 +51,7 @@ function NowPlaying() {
           type="button"
           onClick={() => dispatch(fetchNowMovies(nextPage))}
           disabled={status === "pending"}
-          className="bg-indigo-500 w-56 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+          className="bg-slate-500 w-56 border-0 py-2 px-6 focus:outline-none hover:bg-slate-600 rounded text-lg text-zinc-300"
         >
           {status === "fulfilled" ? (
             "Daha Fazla Yükle"
@@ -78,7 +78,7 @@ function NowPlaying() {
           )}
         </button>
       </div>
-    </>
+    </div>
   );
 }
 

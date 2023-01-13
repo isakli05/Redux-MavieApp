@@ -113,14 +113,14 @@ function NetworkList() {
                   </Link>
                 </div>
                 <div className="md:flex-grow ml-5">
-                  <h2 className="text-2xl font-medium text-gray-900 title-font">
+                  <h2 className="text-2xl font-medium text-gray-100 title-font">
                     {tv.name}
                   </h2>
                   <span className="text-gray-500 text-sm">
                     {tv.first_air_date}
                   </span>
 
-                  <p className="leading-relaxed mt-6">
+                  <p className="leading-relaxed mt-6 text-gray-200">
                     {tv.overview !== ""
                       ? tv.overview.slice(0, 260).concat("...")
                       : ""}

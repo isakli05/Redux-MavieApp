@@ -81,10 +81,10 @@ function MovieDetail() {
                   ({movieDetail?.release_date.slice(0, 4)})
                 </span>
               </h1>
-              <p className="w-[700px] text-slate-600">
+              <p className="w-[700px] text-slate-300">
                 {movieDetail?.overview}
               </p>
-              <p className="text-sm text-slate-600">
+              <p className="text-sm text-slate-200">
                 {movieDetail?.genres.map((genre) => (
                   <span key={genre.id}>{genre.name} </span>
                 ))}

@@ -123,7 +123,7 @@ function Navbar() {
       </ul>
 
       <input
-        className="flex-1 py-2 text-slate-900  placeholder:text-slate-900 px-4 rounded-lg max-w-xl"
+        className="flex-1 opacity-0 py-2 text-slate-900  placeholder:text-slate-900 px-4 rounded-lg max-w-xl"
         placeholder="Search"
       />
 

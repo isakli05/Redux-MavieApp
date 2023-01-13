@@ -22,7 +22,7 @@ function TvSeasonListBanner({ tv_id }: { tv_id: string }) {
 
   return (
     <>    
-      <div className="flex items-center p-5 h-32 my-5 bg-slate-600">
+      <div className="flex items-center p-5 h-32 my-5 bg-slate-500">
         <div className="flex items-center ml-11">
           <Link className="flex" to={`/tv/${tv_id}`}>
             <img
@@ -33,14 +33,14 @@ function TvSeasonListBanner({ tv_id }: { tv_id: string }) {
             />
             <div className="ml-2">
               <div className="flex space-x-2">
-                <h3 className="font-semibold text-3xl hover:text-slate-300">
+                <h3 className="font-semibold text-3xl text-gray-100 hover:text-gray-300">
                   {tvDetail?.name}{" "}
                 </h3>
-                <h5 className="text-3xl font-thin">
+                <h5 className="text-3xl font-thin text-gray-100">
                   ({tvDetail?.first_air_date!==""?tvDetail?.first_air_date.slice(0,4):""})
                 </h5>
               </div>
-              <span className="text-slate-700 hover:text-slate-300">
+              <span className="text-gray-100 hover:text-slate-300">
                 <i className="fa-solid fa-arrow-left mr-2 text-sm "></i>Back to main
               </span>
             </div>

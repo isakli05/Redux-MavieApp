@@ -31,7 +31,7 @@ function App() {
   const movies = useAppSelector((state) => state.movies);
   const currerntMovie = movies.data && movies.data.results[1];
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-slate-900">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

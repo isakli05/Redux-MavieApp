@@ -10,6 +10,9 @@ export interface Cast {
     character: string;
     credit_id: string;
     order: number;
+    total_episode_count: number;
+    roles: Roles[];
+    
 }
 
 export interface Crew {
@@ -26,8 +29,14 @@ export interface Crew {
     job: string;
 }
 
+export interface Roles {
+    credit_id: string;
+    episode_count: number;
+    character: string;
+}
+
 export interface TvCredits {
     cast: Cast[];
-    crew: Crew[];
+    crew: Crew[];    
     id: number;
 }

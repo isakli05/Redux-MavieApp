@@ -17,11 +17,12 @@ function TvCredit({ id }: TvCreditsProps) {
   useEffect(() => {
     dispatch(fetchTvCredits(id!));
   }, []);
+console.log(tvCredits);
 
   
   return (
     <div className="bg-white py-2 dark:bg-slate-900 dark:text-slate-100 text-slate-900">
-      <h3 className="text-3xl text-left text-zinc-600 font-semibold">
+      <h3 className="text-3xl text-left text-zinc-300 font-semibold">
         Dizi Oyuncuları
       </h3>
       <ul className="flex mt-3  overflow-scroll overflow-y-hidden">
@@ -45,12 +46,13 @@ function TvCredit({ id }: TvCreditsProps) {
                       {cast.original_name}
                     </p>
                     <span className="text-sm font-light dark:text-slate-400 text-slate-500">
-                      //TODO:dizideki isimleri yazılacak                      
+                      
                       {cast.character}
+                      {cast.roles?.map((role) => (role?.character ? ` ${role?.character}` : ""))}
+                      
                     </span>
                     <span className="text-sm font-light dark:text-slate-400 text-slate-500">
-                      //TODO:oyuncuların oynadığı bölüm sayısı
-                      
+                    {cast.total_episode_count} Bölüm               
                     </span>
                   </div>
                 </figure>

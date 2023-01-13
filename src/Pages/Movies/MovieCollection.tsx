@@ -210,7 +210,7 @@ function MovieCollection() {
                           {movie.original_title}
                         </p>
                           <span className="text-xs ml-3">{movie.release_date}</span>
-                        <p className="text-md ml-3 mt-5 text-slate-500">
+                        <p className="text-md ml-3 mt-5 text-slate-100">
                           {movie.overview.split(" ").slice(0, 60).join(" ")}...
                         </p>
                       </div>

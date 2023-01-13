@@ -17,7 +17,9 @@ function Movies() {
   return (
     <div className="dark:bg-slate-900">
       <aside className="px-10 py-2">
-        <h2 className="text-2xl font-semibold">Popüler Filmler</h2>
+        <h2 className="text-2xl font-semibold text-zinc-300">
+          Popüler Filmler
+        </h2>
       </aside>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
         {movies.data?.results.map((movie) => (
@@ -26,15 +28,26 @@ function Movies() {
             className="cursor-pointer shadow dark:drop-shadow-2xl p-4 rounded"
           >
             <article className="flex flex-col">
-              <Link to={`/movie/${movie.id}-${movie.original_title.toLowerCase().replaceAll(".","-").replaceAll(",","-").replaceAll(" ","-").replaceAll("--","-").replace(":","").split(",",1)}`}>
-                <img
-                  src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-                  alt={movie.title}
-                  className="w-full h-full object-cover object-center rounded-md"
-                  loading="lazy"
-                />
+              <Link
+                to={`/movie/${movie.id}-${movie.original_title
+                  .toLowerCase()
+                  .replaceAll(".", "-")
+                  .replaceAll(",", "-")
+                  .replaceAll(" ", "-")
+                  .replaceAll("--", "-")
+                  .replace(":", "")
+                  .split(",", 1)}`}
+              >
+                <div className="h-[337px]">
+                  <img
+                    src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                    alt={movie.title}
+                    className="w-full h-full object-cover object-center rounded-md"
+                    loading="lazy"
+                  />
+                </div>
                 <h3 className="m-2">
-                  <p className="text-gray-900 dark:text-black-100 title-font text-xl font-medium">
+                  <p className="text-gray-100 dark:text-black-100 title-font text-xl font-medium">
                     {movie.title}
                   </p>
                 </h3>
@@ -51,7 +64,7 @@ function Movies() {
           type="button"
           onClick={() => dispatch(fetchMovies(nextPage))}
           disabled={status === "pending"}
-          className="bg-slate-900 hover:bg-slate-700 text-zinc-900 dark:text-zinc-100 w-56 border-0 py-2 px-6 focus:outline-none rounded text-lg font-bold
+          className="bg-slate-500 w-56 border-0 py-2 px-6 focus:outline-none hover:bg-slate-600 rounded text-lg text-zinc-300
           "
         >
           {status === "fulfilled" ? (

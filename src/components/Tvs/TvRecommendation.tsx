@@ -6,27 +6,30 @@ import { Tvs } from "../../types/tvs";
 
 type TvRecommendationProps = {
   id?: string;
+  name?: string;
 };
 
-function TvRecommendation({ id }: TvRecommendationProps) {
-  const [movieRecom, setMovieRecom] = useState<Tvs>();
+function TvRecommendation({ id,name }: TvRecommendationProps) {
+  const [tvRecom, setTvRecom] = useState<Tvs>();
 
   useEffect(() => {
     axios(
       `https://api.themoviedb.org/3/tv/${id}/recommendations?api_key=a005a803cdec9237f52c2801d1f28661&language=en-US&page=1`
     )
       .then((res) => res.data)
-      .then((data) => setMovieRecom(data));
+      .then((data) => setTvRecom(data));
   }, []);
 
   
+  
   return (
     <div>
-      <h3 className="mt-6 mb-4 text-2xl text-left text-zinc-600 font-semibold">
+      <h3 className="mt-6 mb-4 text-2xl text-left text-zinc-300 font-semibold">
         Tavsiyeler
+        
       </h3>
       <ul className="flex  overflow-scroll overflow-y-hidden">
-        {movieRecom?.results.map((tv) => (
+        {tvRecom?.results.length===0?`We don't have enough data to suggest any TV shows based on ${name}. You can help by rating TV shows you've seen.`: tvRecom?.results.map((tv) => (
           <Link
             key={tv.id}
             to={`/tv/${tv.id}-${tv.original_name
@@ -41,10 +44,10 @@ function TvRecommendation({ id }: TvRecommendationProps) {
             <li className="flex flex-col w-72 shadow rounded-lg mb-2">
               <figure className="flex-col space-y-2">
                 <img
-                  className="h-36 w-64 object-cover object-top rounded-md"
+                  className="h-36 w-64 object-cover object-center rounded-md"
                   src={`${
                     tv?.poster_path === null
-                      ? "/public/assets/nullUser.svg"
+                      ? "/public/assets/tv_null.svg"
                       : `${image}${tv?.poster_path}`
                   }`}
                   alt=""
