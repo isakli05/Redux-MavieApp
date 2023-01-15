@@ -25,25 +25,24 @@ function Popular() {
 
   return (
     <div>
-      <div className="flex m-5">
-        <h3 className="mr-6 text-2xl text-left text-zinc-300 font-semibold">
+      <div className="flex m-5 ">
+        <h3 className="mr-3 lg:mr-6 lg:text-2xl text-1xl text-left text-zinc-300 font-semibold w-14">
           What's Popular
         </h3>
-        <div className="flex-col rounded-xl shadow-sm" role="group">
+        <div className="flex-col lg:text-2xl rounded-xl shadow-sm " role="group">
           <button
           onClick={() => handleClick(0, "with_watch_monetization_types=flatrate")}            
             className={`
             ${activeIndex === 0 ? "bg-red-500" : ""}
-            px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-l-xl hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white`}
+            px-4 py-2 text-xs lg:text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-l-xl hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white`}
           >
             Streaming
-          </button>
-          
+          </button>          
           <button
             onClick={() => handleClick(2, "with_watch_monetization_types=rent")} 
             className={`
             ${activeIndex === 2 ? "bg-red-500" : ""}
-            px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200  hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white`}
+            px-4 py-2 text-xs lg:text-sm font-medium text-gray-900 bg-white border border-gray-200  hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white`}
           >
             For Rent
           </button>
@@ -51,7 +50,7 @@ function Popular() {
             onClick={() => handleClick(3, "with_watch_monetization_type=3|2")} 
             className={`
             ${activeIndex === 3 ? "bg-red-500" : ""}
-            px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-r-xl hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white`}
+            px-4 py-2 text-xs lg:text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-r-xl hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white`}
           >
             In Theaters
           </button>

@@ -1,4 +1,4 @@
-import Navbar from "./components/Navbar";
+
 import { Route, Routes } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "./redux/store";
 import Home from "./Pages/Home";
@@ -25,13 +25,14 @@ import TvCast from "./Pages/Tvs/TvCast";
 import TvKeyList from "./Pages/Tvs/TvKeyList";
 import TvSeasonDetail from "./Pages/Tvs/TvSeasonDetail";
 import TvSeasonsList from "./Pages/Tvs/TvSeasonsList";
+import Navbar from "./components/Navbar";
 
 function App() {
   const dispatch = useAppDispatch();
   const movies = useAppSelector((state) => state.movies);
   const currerntMovie = movies.data && movies.data.results[1];
   return (
-    <div className="flex flex-col min-h-screen bg-slate-900">
+    <div className="flex flex-col min-h-screen bg-slate-900">      
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
