@@ -34,7 +34,7 @@ const [tvKey, setTvKey] = useState([]);
         <div className="flex  flex-col md:flex-row items-center justify-center px-6 py-4 space-y-2 text-center">
           <button
             type="button"
-            className="bg-indigo-500 w-56 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+            className="bg-transparent w-56 border-0 py-2 px-6 focus:outline-none  rounded text-lg"
             disabled
           >
             <div role="status">
@@ -68,7 +68,7 @@ const [tvKey, setTvKey] = useState([]);
                 "": 
                 `${image}${tvDetail?.poster_path}`
               }`}
-              alt={`${tvDetail?.name===null?"wqewq":"xcvcxvx"}`}
+              alt={`${tvDetail?.name===null?"":""}`}
               className="w-60 h-96 opacity-100 z-10 absolute mx-4 object-cover object-center rounded-md"
             />
 
@@ -100,7 +100,7 @@ const [tvKey, setTvKey] = useState([]);
           </div>
 
           <div className="px-4  space-y-4 bg-white dark:bg-slate-900 text-gray-900 dark:text-gray-100 ">
-            <div className="lg:flex gap-x-8">
+            <div className="lg:flex lg:gap-x-8">
               <article className="w-9/12 dark:border-gray-700">
                 <TvCredits id={id} />
 

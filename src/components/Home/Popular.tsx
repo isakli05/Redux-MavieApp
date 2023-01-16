@@ -26,7 +26,7 @@ function Popular() {
   return (
     <div>
       <div className="flex m-5 ">
-        <h3 className="mr-3 lg:mr-6 lg:text-2xl text-1xl text-left text-zinc-300 font-semibold w-14">
+        <h3 className="mr-3 lg:mr-6 lg:text-2xl text-1xl text-left text-zinc-300 font-semibold w-14 lg:w-max">
           What's Popular
         </h3>
         <div className="flex-col lg:text-2xl rounded-xl shadow-sm " role="group">

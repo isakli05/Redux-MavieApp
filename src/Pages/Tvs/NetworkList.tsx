@@ -55,7 +55,7 @@ function NetworkList() {
       <div className="flex  flex-col md:flex-row items-center justify-center px-6 py-4 space-y-2 text-center">
         <button
           type="button"
-          className="bg-indigo-500 w-56 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+          className="bg-transparent w-56 border-0 py-2 px-6 focus:outline-none  rounded text-lg"
           disabled
         >
           <div role="status">

@@ -41,7 +41,7 @@ console.log(tvCredits);
                     }`}
                     alt={`${cast?.name}`}
                   />
-                  <div className="flex flex-col  w-36 space-y-1">
+                  <div className="flex flex-col w-36 space-y-1">
                     <p className="font-semibold w-32 dark:text-slate-100 text-slate-900">
                       {cast.original_name}
                     </p>

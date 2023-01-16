@@ -27,7 +27,7 @@ function Upcıming() {
           >
             <article className="flex flex-col">
               <Link to={`/movie/${movie.id}`}>
-              <div className="h-[337px]">
+              <div className="lg:h-[337px]">
                 <img
                   loading="lazy"
                   src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}

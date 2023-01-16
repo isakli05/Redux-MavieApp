@@ -5,7 +5,7 @@ import Trending from '../components/Home/Trending'
 function Home() {
 
   return (
-    <div className='bg-slate-900'>
+    <div className='bg-slate-900 lg:mx-auto max-w-7xl min-h-screen'>
       <Popular/>
       <Free/>
       <Trending/>

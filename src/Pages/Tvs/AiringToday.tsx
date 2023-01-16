@@ -28,7 +28,7 @@ function AiringToday() {
           >
             <article className="flex flex-col">              
               <Link to={`/tv/${tv.id}-${tv.original_name.toLowerCase().replaceAll(".","-").replaceAll(",","-").replaceAll(" ","-").replaceAll("--","-").replace(":","").split(",",1)}`}>
-              <div className="h-[337px]">
+              <div className="lg:h-[337px]">
                 <img
                   src={`https://image.tmdb.org/t/p/original${tv.poster_path}`}
                   alt={tv.name}

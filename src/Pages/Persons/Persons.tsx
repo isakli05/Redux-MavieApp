@@ -32,7 +32,7 @@ function Persons() {
               <img
                 src={`${person?.profile_path===null?'/public/assets/nullUser.svg':`${image}${person?.profile_path}`}`}
                 alt={person.name}
-                className="w-full h-56 object-cover object-center rounded-md"
+                className="w-full lg:h-56 object-cover object-center rounded-md"
                 loading="lazy"
               />
               <h3 className="mt-2">
