@@ -29,7 +29,7 @@ function Navbar() {
 
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
-                  <span className="md:block text-slate-900 dark:text-slate-100 font-bold lg:text-2xl">
+                  <span className="md:block text-slate-100 dark:text-slate-100 font-bold lg:text-2xl">
                     <NavLink to={"/"}>LMDB</NavLink>
                   </span>
                 </div>
