@@ -36,7 +36,7 @@ function Upcıming() {
                 />
                 </div>
                 <h3 className="m-2">
-                  <p className="text-gray-900 dark:text-gray-100 title-font text-xl font-medium">
+                  <p className="text-gray-100 dark:text-gray-100 title-font text-xl font-medium">
                     {movie.title}
                   </p>
                 </h3>

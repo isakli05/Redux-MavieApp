@@ -18,14 +18,16 @@ function MovieLabel() {
     <div className="">
       {" "}
       <h3 className="text-xl font-semibold ">Etikler</h3>
+      <div className="grid grid-cols-3 min-w-max md:inline md:w-min gap-3 ">
        {movieLabel?.keywords!==null
        ?movieLabel?.keywords.map((key) => (
-        <Link key={key.id} to={`/keyword/${key.id}-${key.name.replaceAll(" ","-")}/movie`}>
-        <button className="bg-slate-700 text-slate-100 text-sm font-thin p-2 m-1 rounded-lg">
+        <button key={key.id} className="bg-slate-700 text-slate-100 text-sm font-thin  py-2 px-1 md:m-1 md:p-2  rounded-lg">
+        <Link to={`/keyword/${key.id}-${key.name.replaceAll(" ","-")}/movie`}>
           {key.name}
-        </button>
         </Link>
+        </button>
       )):"Hiç anahtar kelime eklenmedi."} 
+      </div>
     </div>
   );
 }

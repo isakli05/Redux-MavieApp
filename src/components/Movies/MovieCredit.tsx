@@ -17,21 +17,23 @@ function MovieCredit({ id }: MovieCreditsProps) {
   useEffect(() => {
     dispatch(fetchMovieCredits(id!));
   }, []);
+ 
   
   return (
     <div className="bg-white py-2 dark:bg-slate-900 dark:text-slate-100 text-slate-900">      
         <h3 className="text-3xl text-left text-zinc-300 font-semibold">
           Başrol Oyuncuları
         </h3>
+        
         <ul className="flex mt-3  overflow-scroll overflow-y-hidden">
           {movieCredits?.cast
             .map((cast) => (
-                  <Link key={cast.id} to={`/person/${cast.id}`}>
-              <li className="flex flex-col shadow rounded-lg mb-3">
+              <li key={cast.id} className="flex flex-col w-[140px]  shadow rounded-lg m-2">
+                <Link to={`/person/${cast.id}`}>
                   <figure className="flex-col space-y-2">
                     <img
                       loading="lazy"
-                      className="h-44  rounded-md"
+                      className="h-44 w-[140px] rounded-t-lg rounded-tr-lg"
                       src={`${
                         cast?.profile_path === null
                           ? "/public/assets/nullUser.svg"
@@ -39,17 +41,17 @@ function MovieCredit({ id }: MovieCreditsProps) {
                       }`}
                       alt={`${cast?.name}`}
                     />
-                    <div className="flex flex-col  w-36 space-y-1">
-                      <p className="font-semibold dark:text-slate-100 text-slate-900">
+                    <div className="flex flex-col pl-1 pb-3  ">
+                      <p className="font-semibold  dark:text-slate-100 text-slate-900">
                         {cast.original_name}
                       </p>
-                      <span className="text-sm font-light dark:text-slate-400 text-slate-500">
+                      <span className="text-sm w-[140px] font-light dark:text-slate-400 text-slate-500">
                         {cast.character}
                       </span>
                     </div>
                   </figure>
-                </li>
               </Link>
+                </li>
             ))
             .slice(0, 9)}
           <Link to={`/movie/${id}/cast`}>
@@ -58,7 +60,7 @@ function MovieCredit({ id }: MovieCreditsProps) {
             </li>
           </Link>
         </ul>
-      
+        
     </div>
   );
 }
