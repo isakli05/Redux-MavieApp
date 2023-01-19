@@ -18,6 +18,7 @@ function MovieCredit({ id }: MovieCreditsProps) {
     dispatch(fetchMovieCredits(id!));
   }, []);
  
+ 
   
   return (
     <div className="bg-white py-2 dark:bg-slate-900 dark:text-slate-100 text-slate-900">      

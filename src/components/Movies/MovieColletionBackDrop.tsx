@@ -29,7 +29,7 @@ function MovieColletionBackDrop({id,title}:MovieColletionProps) {
     </figure>
 
     <div className="w-full p-4 absolute top-1/4">
-      <h1 className="text-3xl font-semibold leading-tight">
+      <h1 className="text-1xl lg:text-3xl font-semibold leading-tight">
         Part of the {movieCollect?.name}
       </h1>
       <h1 className="text-slate-300 mb-6 w-11/12">
@@ -45,7 +45,7 @@ function MovieColletionBackDrop({id,title}:MovieColletionProps) {
          title?.toLocaleLowerCase().replaceAll(" ","-").slice(0,title.indexOf(":"))+
           "-collection"
         }`}
-        className="bg-slate-600 hover:bg-slate-800 px-6 py-3 font-semibold text-white text-md  rounded-full"
+        className="bg-slate-600 hover:bg-slate-800 px-6 py-2 lg:py-3 font-semibold text-white text-sm lg:text-md  rounded-full"
       >
         KOLEKSİYONU GÖRÜNTÜLE
       </Link>

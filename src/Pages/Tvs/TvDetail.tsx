@@ -35,7 +35,7 @@ const [tvKey, setTvKey] = useState([]);
         <Loading/>
       ) : (
         <>
-          <div className="flex px-4 py-8 md:py-6 flex-col md:flex-row text-slate-900 dark:text-slate-100 items-center  dark:bg-slate-900">            
+          <div className="flex px-4 py-8 md:py-6 flex-col md:flex-row text-slate-900 dark:text-slate-100 items-center bg-slate-900">            
             <img
               loading="lazy"
               src={`${
@@ -44,7 +44,7 @@ const [tvKey, setTvKey] = useState([]);
                 `${image}${tvDetail?.poster_path}`
               }`}
               alt={`${tvDetail?.name===null?"":""}`}
-              className="w-60 h-96 opacity-100 z-10 absolute mx-4 object-cover object-center rounded-md"
+              className="hidden md:block w-40 h-60 left-2 top-36 md:left-3 lg:w-60 lg:h-96 opacity-100 z-10 absolute mx-4 object-cover object-center rounded-md"
             />
 
             <figure className="w-full opacity-30">
@@ -57,7 +57,7 @@ const [tvKey, setTvKey] = useState([]);
                 alt={`${tvDetail?.backdrop_path===null?"":""}`}
               />
             </figure>
-            <div className="w-max p-4 space-y-4 absolute left-72">
+            <div className="lg:w-max p-4 space-y-4 absolute left-4 top-96 md:top-auto  w-46 lg:left-72">
               <h1 className="text-2xl font-semibold leading-tight">
                 {tvDetail?.name}
                 <span className="text-3xl font-light">
@@ -65,7 +65,7 @@ const [tvKey, setTvKey] = useState([]);
                   ({tvDetail?.first_air_date.slice(0, 4)})
                 </span>
               </h1>
-              <p className="w-[700px] text-slate-300">{tvDetail?.overview}</p>
+              <p className="hidden md:block w-[700px] text-slate-300">{tvDetail?.overview}</p>
               <p className="text-sm text-slate-200">
                 {tvDetail?.genres.map((genre) => (
                   <span key={genre.id}>{genre.name} </span>
@@ -76,7 +76,7 @@ const [tvKey, setTvKey] = useState([]);
 
           <div className="px-4  space-y-4 bg-white dark:bg-slate-900 text-gray-900 dark:text-gray-100 ">
             <div className="lg:flex lg:gap-x-8">
-              <article className="w-9/12 dark:border-gray-700">
+              <article className="w-12/12 lg:w-9/12 dark:border-gray-700">
                 <TvCredits id={id} />
 
                 <Link to={`/tv/${id}/cast`}>
@@ -113,7 +113,7 @@ const [tvKey, setTvKey] = useState([]);
                     <h3 className="text-slate-300 dark:text-slate-400 font-bold">
                       Durum
                     </h3>
-                    <p className="text-slate-300 dark:text-slate-400 font-light text-sm">
+                    <p className="text-slate-300 dark:text-slate-400 font-light text-sm w-60">
                       {tvDetail?.status === "Returning Series"
                         ? "Yeni Sezonu Olan Diziler"
                         : "Devam Ediyor"}
@@ -157,7 +157,7 @@ const [tvKey, setTvKey] = useState([]);
                     </p>
                   </figure>
                 </article>
-                <article className="w-full  grid grid-cols-1 pb-4">
+                <article className="w-full mt-4 grid grid-cols-1 pb-4">
                   <TvLabel />
                 </article>
               </aside>

@@ -43,7 +43,7 @@ function TvSeasonsBackdrops({ tv_id, title, season_number }: TvSeasonsProps) {
         </Link>
       </figure>
 
-      <div className="w-full p-4 absolute left-36 top-16">
+      <div className="lg:w-full p-4 absolute left-36 top-16">
       <Link
           to={`/tv/${tv_id}/season/${tvSeasons?.season_number}`}
           className=""
@@ -56,7 +56,7 @@ function TvSeasonsBackdrops({ tv_id, title, season_number }: TvSeasonsProps) {
         <p className="text-md font-semibold leading-tight">
           {tvSeasons?.air_date?.slice(0, 4)} | {tvSeasons?.episodes.length} Bölüm
         </p>
-        <h1 className="text-slate-300 mt-9 w-11/12">
+        <h1 className="hidden lg:block text-slate-300 mt-9 lg:w-11/12">
           {title} dizisinin {tvSeasons?.season_number}. sezonu {date}{" "}
           tarihinde gösterime girdi.
         </h1>

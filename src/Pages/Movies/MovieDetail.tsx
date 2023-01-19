@@ -37,7 +37,7 @@ function MovieDetail() {
               loading="lazy"
               src={`https://image.tmdb.org/t/p/original${movieDetail?.poster_path}`}
               alt={`${movieDetail?.title}`}
-              className="w-40 h-60 left-2 top-36 md:left-3 lg:w-60 lg:h-96 opacity-100 z-10 absolute mx-4 object-cover object-center rounded-md"
+              className="hidden md:block w-40 h-60 left-2 top-36 md:left-3 lg:w-60 lg:h-96 opacity-100 z-10 absolute mx-4 object-cover object-center rounded-md"
             />
 
             <figure className="w-full opacity-30 ">
@@ -48,7 +48,7 @@ function MovieDetail() {
                 alt={`${movieDetail?.backdrop_path}`}
               />
             </figure>
-            <div className="lg:w-max p-4 space-y-4 absolute left-4 top-96 md:top-auto w-46 lg:left-72">
+            <div className="lg:w-max p-4 space-y-4 absolute left-4  w-46 lg:left-72">
               <h1 className="text-2xl text-zinc-100 font-semibold leading-tight">
                 {movieDetail?.title}
                 <span className="text-3xl font-light">
@@ -68,11 +68,17 @@ function MovieDetail() {
           </div>
 
           <div className="px-4  space-y-4 bg-white dark:bg-slate-900 text-gray-900 dark:text-gray-100 ">
-            <div className="lg:flex gap-x-8">
-              <article className="w-9/12 dark:border-gray-700">
+            <div className="lg:flex lg:gap-x-8">
+              <article className="w-12/12 lg:w-9/12 dark:border-gray-700">
                 <MovieCredit id={id} />
+                <Link to={`/movie/${movie_id}/cast`}>
+                  <li className="flex flex-col font-semibold text-1xl text-left my-6 hover:text-slate-400 duration-200 ">
+                    Tüm Oyuncular ve Ekip
+                  </li>
+                </Link>
                 {movieDetail?.belongs_to_collection !== null ? (
                   <>
+                  <hr />
                     <MovieColletionBackDrop
                       title={movieDetail?.original_title}
                       id={movieDetail?.belongs_to_collection.id}
@@ -85,7 +91,7 @@ function MovieDetail() {
               <MovieRecommendation id={id} />
               </article>
 
-              <aside className="w-3/12 divider grid gap-1">
+              <aside className="lg:w-3/12 divider grid grid-cols-1 gap-1">
                 <article className="w-full mt-4 grid grid-cols-1 pb-4">
                   <figure className="space-y-1">
                     <h3 className="text-slate-700 dark:text-slate-400 font-bold">
@@ -152,7 +158,7 @@ function MovieDetail() {
                     </p>
                   </figure>
                 </article>
-                <article className="w-full  grid grid-cols-1 pb-4">
+                <article className="w-full mt-4 grid grid-cols-1 pb-4">
                   <MovieLabel />
                 </article>
               </aside>

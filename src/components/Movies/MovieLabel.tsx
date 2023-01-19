@@ -15,7 +15,7 @@ function MovieLabel() {
       .then((data) => setMovieLabel(data));
   }, []);
   return (
-    <div className="">
+    <div className="w-60">
       {" "}
       <h3 className="text-xl font-semibold ">Etikler</h3>
       <div className="grid grid-cols-3 min-w-max md:inline md:w-min gap-3 ">

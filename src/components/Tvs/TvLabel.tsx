@@ -15,7 +15,7 @@ function TvLabel() {
       .then((data) => setMovieLabel(data));
   }, []);
   return (
-    <div className="">
+    <div className="w-60">
       {" "}
       <h3 className="text-xl font-semibold ">Etikler</h3>
        {tvLabel?.results!== undefined && tvLabel?.results.length > 0

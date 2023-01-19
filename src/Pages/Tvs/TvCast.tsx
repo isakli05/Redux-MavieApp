@@ -16,9 +16,6 @@ function TvCast() {
   useEffect(() => {
     dispatch(fetchTvCredits(id));
   }, []);
-
-  console.log(tvCredit);
-  
   
   return (
     <>
@@ -29,17 +26,17 @@ function TvCast() {
     <div className="dark:bg-slate-900">
       <TvBanner />
       <div className="flex">
-        <div className="w-3/6">
-          <h3 className="text-3xl text-left ml-16 text-zinc-300 font-semibold">
+        <div className="md:w-3/6">
+          <h3 className="text-2xl md:text-3xl text-left ml-2 lg:ml-16 text-zinc-300 font-medium md:font-semibold">
           Dizi Oyuncuları{" "}
-            <span className="text-2xl font-thin">
+            <span className="hidden sm:block text-xs sm:text-sm md:text-2xl font-thin">
               ({tvCredit?.cast.length})
             </span>
           </h3>
-          <ul className="space-y-4 ml-16 mt-3">
-            {tvCredit?.cast.map((cast) => (
-              <li key={cast.id} className="flex items-center gap-3">
-                <Link className="flex gap-3" to={`/person/${cast.id}`}>
+          <ul className="space-y-4 ml-2 lg:ml-16 mt-3">
+            {tvCredit?.cast.map((cast,index) => (
+              <li key={index} className="flex items-center gap-3">
+                <Link className="lg:flex gap-3" to={`/person/${cast.id}`}>
                   <img
                     loading="lazy"
                     className="w-16"
@@ -59,17 +56,17 @@ function TvCast() {
             ))}
           </ul>
         </div>
-        <div className="w-3/6">
-          <h3 className="text-3xl text-left ml-16 text-zinc-300 font-semibold">
+        <div className="md:w-3/6">
+          <h3 className="text-2xl md:text-3xl text-left md:ml-16 text-zinc-300 font-medium md:font-semibold">
           Dizi Ekibi{" "}
-            <span className="text-2xl font-thin">
+            <span className="hidden sm:block text-xs sm:text-sm md:text-2xl font-thin">
               ({tvCredit?.crew.length})
             </span>
           </h3>
-          <ul className="space-y-4 ml-16 mt-3">
-            {tvCredit?.crew.map((crew) => (
-              <li key={crew.id} className="flex items-center gap-3">
-                <Link className="flex gap-3" to={`/person/${crew.id}`}>
+          <ul className="space-y-4 lg:ml-16 mt-3">
+            {tvCredit?.crew.map((crew,index) => (
+              <li key={index} className="flex items-center gap-3">
+                <Link className="lg:flex gap-3" to={`/person/${crew.id}`}>
                   <img
                     loading="lazy"
                     className="w-16"

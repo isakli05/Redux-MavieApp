@@ -4,10 +4,10 @@ import { NavLink } from "react-router-dom";
 
 function Navbar() {
   return (
-    <Disclosure as={"nav"} className="my-5">
+    <Disclosure as={"nav"} className="my-5 z-50">
       {({ open }: any) => (
         <>
-          <div className="mx-auto max-w-7xl  px-2 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 <Disclosure.Button className="rounded-l bg-slate-400 p-2">
@@ -33,8 +33,8 @@ function Navbar() {
                     <NavLink to={"/"}>LMDB</NavLink>
                   </span>
                 </div>
-                <div className="hidden z-50 sm:ml-6 sm:block">
-                  <ul className="hidden z-50 md:flex space-x-4 dark:text-slate-100 text-slate-900">
+                <div className="hidden  sm:ml-6 sm:block">
+                  <ul className="hidden  md:flex space-x-4 dark:text-slate-100 text-slate-900">
                     <li className="px-4 py-2">
                       <div className="group inline-block relative">
                         <button className="bg-gray-300 text-gray-700 font-semibold py-2 px-4 rounded inline-flex items-center">
@@ -48,7 +48,7 @@ function Navbar() {
                           </svg>
                         </button>
 
-                        <ul className="absolute hidden z-50 text-gray-700 min-w-max pt-1 group-hover:block">
+                        <ul className="absolute hidden  text-gray-700 min-w-max pt-1 group-hover:block">
                           <li className="hover:cursor-pointer">
                             <NavLink
                               className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
@@ -151,8 +151,8 @@ function Navbar() {
           </div>
 
           {/* Mobil Menü */}
-          <Disclosure.Panel className="sm:hidden">
-            <ul className="z-10 md:flex space-x-4 dark:text-slate-100 text-slate-900">
+          <Disclosure.Panel className="sm:hidden transition-all ease-out duration-500 z-50">
+            <ul className="z-50 md:flex space-x-4 dark:text-slate-100 text-slate-900">
               {/* Filmler */}
               <li className="px-4 py-2 hover:cursor-pointer w-20">
                 <div className="group lg:inline-flex relative">
