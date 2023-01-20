@@ -47,7 +47,6 @@ function NetworkList() {
     fetchNetworkTvList();
     fetchNetwork();
   }, []);
-  console.log(network);
 
   return (
     <>
@@ -81,8 +80,8 @@ function NetworkList() {
       </div>
     ) : (
       <>
-    <div className="mb-5">
-      <div className="w-full bg-cyan-900 p-5 mb-5 space-y-4">
+    <div className="max-w-max mb-5">
+      <div className="bg-cyan-900 p-5 mb-5 space-y-4">
         <h1 className="flex justify-between text-3xl mx-6 font-medium leading-tight">
           <Link to={`/network/${network?.id}`} className="text-white">
             <img
@@ -97,23 +96,23 @@ function NetworkList() {
           </span>
         </h1>
       </div>
-      <div className="text-gray-600 body-font overflow-hidden">
+      <div className="text-gray-600 text-center md:text-left body-font overflow-hidden">
         <div className="py-6 mx-10">
-          <div className="">
+          <div className="space-y-10 md:space-y-0">
             {networkFilmList?.results.map((tv) => (
               <div key={tv.id} className="py-3 flex flex-wrap md:flex-nowrap">
                 <div className="flex-shrink-0 flex flex-col ">
                   <Link to={`/tv/${tv.id}`}>
                     <img
                       loading="lazy"
-                      className="h-36 rounded-md"
+                      className="h-96 md:h-36 rounded-md ml-8 lg:ml-0"
                       src={`https://image.tmdb.org/t/p/original/${tv?.poster_path}`}
                       alt={`${tv?.name}`}
                     />
                   </Link>
                 </div>
                 <div className="md:flex-grow ml-5">
-                  <h2 className="text-2xl font-medium text-gray-100 title-font">
+                  <h2 className="text-2xl m-3 md:m-0 font-medium text-gray-100 title-font">
                     {tv.name}
                   </h2>
                   <span className="text-gray-500 text-sm">

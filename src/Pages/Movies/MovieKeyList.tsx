@@ -30,7 +30,7 @@ function MovieKeyList() {
   }, []);
 
   return (
-    <div className="mb-5">
+    <div className="mb-5 text-center">
       <div className="w-full bg-cyan-900 p-5 mb-5 space-y-4">
         <h1 className="flex justify-between text-3xl mx-6 font-medium leading-tight">
           <span className="text-white">{label}</span>
@@ -38,24 +38,24 @@ function MovieKeyList() {
         </h1>
       </div>
       <div className="text-gray-600 body-font overflow-hidden">
-        <div className="py-6 mx-10">
-          <div className="">
+        <div className="py-6 mx-5">
+          <div className="space-y-10 md:space-y-0">
             {movieKeyList?.results.map((movie) => (
               <div
                 key={movie.id}
                 className="py-3 flex flex-wrap md:flex-nowrap"
               >
-                <div className="flex-shrink-0 flex flex-col ">
+                <div className="flex-shrink-0 flex flex-col">
                   <Link to={`/movie/${movie.id}`}>
                     <img
                       loading="lazy"
-                      className="h-36 rounded-md"
+                      className="h-96 md:h-36 rounded-md ml-12 lg:ml-0"
                       src={`https://image.tmdb.org/t/p/original/${movie?.poster_path}`}
                       alt={`${movie?.title}`}
                     />
                   </Link>
                 </div>
-                <div className="md:flex-grow ml-5">
+                <div className="md:flex-grow">
                   <h2 className="text-2xl font-medium text-gray-100 title-font">
                     {movie.title}
                   </h2>
@@ -63,7 +63,7 @@ function MovieKeyList() {
                     {movie.release_date}
                   </span>
 
-                  <p className="leading-relaxed mt-6 text-gray-200">
+                  <p className="leading-relaxed mt-2 text-gray-200">
                     {movie.overview !== ""
                       ? movie.overview.slice(0, 260).concat("...")
                       : ""}

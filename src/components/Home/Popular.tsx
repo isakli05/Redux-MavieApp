@@ -33,24 +33,24 @@ function Popular() {
           <button
           onClick={() => handleClick(0, "with_watch_monetization_types=flatrate")}            
             className={`
-            ${activeIndex === 0 ? "bg-red-500" : ""}
-            px-4 py-2 text-xs lg:text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-l-xl hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white`}
+            ${activeIndex === 0 ? "bg-cyan-400 transition duration-500 ease-linear" : ""}
+            px-4 py-2 text-xs lg:text-sm font-medium  text-gray-900 bg-white border border-gray-200 rounded-l-xl dark:bg-gray-700 dark:border-gray-600 dark:text-white`}
           >
             Streaming
           </button>          
           <button
             onClick={() => handleClick(2, "with_watch_monetization_types=rent")} 
             className={`
-            ${activeIndex === 2 ? "bg-red-500" : ""}
-            px-4 py-2 text-xs lg:text-sm font-medium text-gray-900 bg-white border border-gray-200  hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white`}
+            ${activeIndex === 2 ? "bg-cyan-400 transition duration-500 ease-linear" : ""}
+            px-4 py-2 text-xs lg:text-sm font-medium  text-gray-900 bg-white border border-gray-200  dark:bg-gray-700 dark:border-gray-600 dark:text-white`}
           >
             For Rent
           </button>
           <button
             onClick={() => handleClick(3, "with_watch_monetization_type=3|2")} 
             className={`
-            ${activeIndex === 3 ? "bg-red-500" : ""}
-            px-4 py-2 text-xs lg:text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-r-xl hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white`}
+            ${activeIndex === 3 ? "bg-cyan-400 transition duration-500 ease-linear" : ""}
+            px-4 py-2 text-xs lg:text-sm font-medium  text-gray-900 bg-white border border-gray-200 rounded-r-xl dark:bg-gray-700 dark:border-gray-600 dark:text-white`}
           >
             In Theaters
           </button>

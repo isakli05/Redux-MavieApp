@@ -39,7 +39,7 @@ function MovieCollection() {
               loading="lazy"
               src={`https://image.tmdb.org/t/p/original${movieCollect?.poster_path}`}
               alt={`${movieCollect?.name}`}
-              className="w-60 h-96 opacity-100 z-10 absolute mx-4 object-cover object-center rounded-md"
+              className="hidden md:block w-60 h-96 opacity-100 z-10 absolute mx-4 object-cover object-center rounded-md"
             />
 
             <figure className="w-full opacity-30 ">
@@ -50,7 +50,7 @@ function MovieCollection() {
                 alt={`${movieCollect?.backdrop_path}`}
               />
             </figure>
-            <div className="w-max p-4 space-y-8 absolute left-72">
+            <div className="lg:w-max p-4 space-y-8 absolute lg:left-72">
               <h1 className="text-3xl  font-semibold leading-tight">
                 {movieCollect?.name}
                 <p className="text-sm font-light">
@@ -60,9 +60,9 @@ function MovieCollection() {
                   ))}
                 </p>
               </h1>
-              <h2 className="text-2xl font-semibold leading-tight">
+              <h2 className="hidden md:block text-2xl font-semibold leading-tight">
                 Özet
-                <p className="w-[760px] text-sm text-slate-200">
+                <p className="hidden md:block w-[760px] text-sm text-slate-200">
                   {movieCollect?.overview}
                 </p>
               </h2>
@@ -169,7 +169,7 @@ function MovieCollection() {
                    <Link to={`/movie/${movie.id}-${movie.original_title.toLocaleLowerCase().replaceAll(".","-").replaceAll(",","-").replaceAll(" ","-").replaceAll("--","-").replace(":","").split(",",1)}`}>
                     <li
                       key={movie.id}
-                      className=" flex bg-white dark:bg-transparent relative rounded-lg dark:border dark:border-slate-500"
+                      className="max-w-max flex bg-white dark:bg-transparent relative rounded-lg dark:border dark:border-slate-500"
                     >
                       <img
                         className="w-28 h-38 rounded-sm object-cover object-top"

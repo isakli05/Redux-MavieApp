@@ -48,7 +48,7 @@ function MovieDetail() {
                 alt={`${movieDetail?.backdrop_path}`}
               />
             </figure>
-            <div className="lg:w-max p-4 space-y-4 absolute left-4  w-46 lg:left-72">
+            <div className="lg:w-max p-4 space-y-4 absolute left-4 w-4/5 lg:left-72">
               <h1 className="text-2xl text-zinc-100 font-semibold leading-tight">
                 {movieDetail?.title}
                 <span className="text-3xl font-light">
@@ -67,7 +67,7 @@ function MovieDetail() {
             </div>
           </div>
 
-          <div className="px-4  space-y-4 bg-white dark:bg-slate-900 text-gray-900 dark:text-gray-100 ">
+          <div className="px-4 space-y-4 bg-white dark:bg-slate-900 text-gray-900 dark:text-gray-100 ">
             <div className="lg:flex lg:gap-x-8">
               <article className="w-12/12 lg:w-9/12 dark:border-gray-700">
                 <MovieCredit id={id} />

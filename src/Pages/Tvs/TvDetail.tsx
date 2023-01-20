@@ -57,8 +57,8 @@ const [tvKey, setTvKey] = useState([]);
                 alt={`${tvDetail?.backdrop_path===null?"":""}`}
               />
             </figure>
-            <div className="lg:w-max p-4 space-y-4 absolute left-4 top-96 md:top-auto  w-46 lg:left-72">
-              <h1 className="text-2xl font-semibold leading-tight">
+            <div className="lg:w-max p-4 space-y-4 absolute left-4   w-4/5 lg:left-72">
+              <h1 className="text-2xl text-zinc-100 font-semibold leading-tight">
                 {tvDetail?.name}
                 <span className="text-3xl font-light">
                   {" "}
@@ -74,9 +74,9 @@ const [tvKey, setTvKey] = useState([]);
             </div>
           </div>
 
-          <div className="px-4  space-y-4 bg-white dark:bg-slate-900 text-gray-900 dark:text-gray-100 ">
+          <div className="px-4 space-y-4 bg-white dark:bg-slate-900 text-gray-900 dark:text-gray-100 ">
             <div className="lg:flex lg:gap-x-8">
-              <article className="w-12/12 lg:w-9/12 dark:border-gray-700">
+              <article className="w-12/12 md:w-9/12 dark:border-gray-700">
                 <TvCredits id={id} />
 
                 <Link to={`/tv/${id}/cast`}>
@@ -97,7 +97,7 @@ const [tvKey, setTvKey] = useState([]);
                   <></>
                 )}               
                 
-                <TvRecommendation id={id} name={tvDetail?.name}/>
+                <TvRecommendation id={id} name={tvDetail?.name}/> 
               </article>
 
               <aside className="w-3/12 divider grid gap-1">
@@ -158,7 +158,7 @@ const [tvKey, setTvKey] = useState([]);
                   </figure>
                 </article>
                 <article className="w-full mt-4 grid grid-cols-1 pb-4">
-                  <TvLabel />
+                   <TvLabel /> 
                 </article>
               </aside>
             </div>

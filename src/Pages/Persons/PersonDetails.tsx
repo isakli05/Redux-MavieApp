@@ -69,7 +69,7 @@ function PersonDetails() {
               </li>
               <li className="flex flex-col items-left">
                 <h5 className="font-bold text-xl">Doğum Yeri</h5>
-                <p className="w-5 text-slate-800 dark:text-slate-100 font-medium ">
+                <p className="text-slate-800 dark:text-slate-100 font-medium ">
                   {cast?.place_of_birth}
                 </p>
               </li>
