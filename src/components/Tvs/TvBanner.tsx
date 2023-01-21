@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { fetchTvDetail } from "../../redux/tvShows/tvShowsDetailSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { TvDetails } from "../../types/tvsDetails";
+import { image } from "../../helper";
 
 function TvBanner() {
   const { id } = useParams();
@@ -19,7 +20,7 @@ function TvBanner() {
           <img
             loading="lazy"
             className="w-16 mr-2"
-            src={`https://image.tmdb.org/t/p/original/${tv?.poster_path}`}
+             src={`${image}${tv?.poster_path}`}
             alt={tv?.name}
           />
 

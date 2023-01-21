@@ -1,6 +1,7 @@
 import axios, { AxiosResponse } from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
+import { image } from "../../helper";
 import { TvNetwork } from "../../types/tvNetwork";
 import { Network } from "../../types/tvsDetails";
 
@@ -87,7 +88,7 @@ function NetworkList() {
             <img
               loading="lazy"
               className="h-9 rounded-md fill-slate-50	"
-              src={`https://image.tmdb.org/t/p/original/${network?.logo_path}`}
+               src={`${image}${network?.logo_path}`}
               alt={`${network?.name}`}
             />
           </Link>
@@ -106,7 +107,7 @@ function NetworkList() {
                     <img
                       loading="lazy"
                       className="h-96 md:h-36 rounded-md ml-8 lg:ml-0"
-                      src={`https://image.tmdb.org/t/p/original/${tv?.poster_path}`}
+                       src={`${image}${tv?.poster_path}`}
                       alt={`${tv?.name}`}
                     />
                   </Link>

@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { image } from "../../helper";
 import { fetchMovieDetail } from "../../redux/movies/movieDetailSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { MovieDetails } from "../../types/movieDetails";
@@ -19,7 +20,7 @@ function MovieBanner() {
           <img
             loading="lazy"
             className="w-16 mr-2"
-            src={`https://image.tmdb.org/t/p/original/${movie?.poster_path}`}
+             src={`${image}${movie?.poster_path}`}
             alt={movie?.title}
           />
 

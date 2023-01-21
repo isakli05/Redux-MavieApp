@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { image } from "../../helper";
 import { useAppDispatch } from "../../redux/store";
 import { fetchTvDetail } from "../../redux/tvShows/tvShowsDetailSlice";
 import { TvDetails } from "../../types/tvsDetails";
@@ -28,7 +29,7 @@ function TvSeasonListBanner({ tv_id }: { tv_id: string }) {
             <img
               loading="lazy"
               className="w-16 mr-2"
-              src={`https://image.tmdb.org/t/p/original/${tvDetail?.poster_path}`}
+               src={`${image}${tvDetail?.poster_path}`}
               alt={tvDetail?.name}
             />
             <div className="ml-2">

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+import { image } from "../../helper";
 import { fetchMovieCollect } from "../../redux/movies/movieCollectSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 
@@ -22,14 +23,14 @@ function MovieColletionBackDrop({ id, title }: MovieColletionProps) {
       <figure className="w-full opacity-30">
         <img
           loading="lazy"
-          src={`https://image.tmdb.org/t/p/original/${movieCollect?.backdrop_path}`}
+           src={`${image}/${movieCollect?.backdrop_path}`}
           className="w-full h-96 md:h-64 object-top object-cover rounded-lg"
           alt={`${movieCollect?.name}`}
         />
       </figure>
 
       <div className="w-full p-4 absolute top-1/4">
-        <h1 className="text-1xl lg:text-3xl font-semibold leading-tight">
+        <h1 className="text-slate-300 text-1xl lg:text-3xl font-semibold leading-tight">
           Part of the {movieCollect?.name}
         </h1>
         <h1 className="text-slate-300 mb-6 w-11/12">

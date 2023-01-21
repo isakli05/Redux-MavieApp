@@ -45,12 +45,12 @@ function MovieCollection() {
             <figure className="w-full opacity-30 ">
               <img
                 loading="lazy"
-                src={`https://image.tmdb.org/t/p/original/${movieCollect?.backdrop_path}`}
+                 src={`${image}${movieCollect?.backdrop_path}`}
                 className="w-full h-[460px] object-top object-cover rounded-lg"
                 alt={`${movieCollect?.backdrop_path}`}
               />
             </figure>
-            <div className="lg:w-max p-4 space-y-8 absolute lg:left-72">
+            <div className="lg:w-max p-4 ml-3 md:ml-0 space-y-8 absolute lg:left-72">
               <h1 className="text-3xl  font-semibold leading-tight">
                 {movieCollect?.name}
                 <p className="text-sm font-light">

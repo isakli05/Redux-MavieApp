@@ -21,7 +21,7 @@ console.log(tvCredits);
 
   
   return (
-    <div className="bg-white py-2 dark:bg-slate-900 dark:text-slate-100 text-slate-900">
+    <div className="bg-slate-900 py-2">
       <h3 className="text-3xl text-left text-zinc-300 font-semibold">
         Dizi Oyuncuları
       </h3>
@@ -42,7 +42,7 @@ console.log(tvCredits);
                     alt={`${cast?.name}`}
                   />
                   <div className="flex flex-col w-36 space-y-1">
-                    <p className="font-semibold w-32 dark:text-slate-100 text-slate-900">
+                    <p className="font-semibold w-32 text-slate-100">
                       {cast.original_name}
                     </p>
                     <span className="text-sm font-light dark:text-slate-400 text-slate-500">

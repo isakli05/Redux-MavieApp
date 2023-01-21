@@ -50,7 +50,7 @@ function MovieRecommendation({ id }: MovieRecommendationProps) {
                   alt=""
                 />
 
-                <p className="mt-2 w-70 truncate text-slate-700 dark:text-slate-400 text-md font-l">
+                <p className="mt-2 w-70 truncate text-slate-300 dark:text-slate-400 text-md font-l">
                   {movie?.title}
                 </p>
               </figure>

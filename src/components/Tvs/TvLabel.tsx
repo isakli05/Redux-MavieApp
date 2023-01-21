@@ -15,10 +15,10 @@ function TvLabel() {
       .then((data) => setMovieLabel(data));
   }, []);
   return (
-    <div className="w-max">
+    <div className="">
       {" "}
       <h3 className="text-xl font-semibold ">Etikler</h3>
-      <div className="grid grid-cols-2 min-w-fit md:inline md:w-min gap-2 ">
+      <div className="md:inline">
        {tvLabel?.results!== undefined && tvLabel?.results.length > 0
        ?tvLabel?.results.map((key) => (
         <Link key={key.id} to={`/keyword/${key.id}-${key.name.replaceAll(" ","-")}/tv`}>

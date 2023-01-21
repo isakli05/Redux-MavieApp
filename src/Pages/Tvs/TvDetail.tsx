@@ -74,13 +74,13 @@ const [tvKey, setTvKey] = useState([]);
             </div>
           </div>
 
-          <div className="px-4 space-y-4 bg-white dark:bg-slate-900 text-gray-900 dark:text-gray-100 ">
+          <div className="px-4 space-y-4 bg-slate-900 text-gray-900 dark:text-gray-100 ">
             <div className="lg:flex lg:gap-x-8">
               <article className="w-12/12 md:w-9/12 dark:border-gray-700">
                 <TvCredits id={id} />
 
                 <Link to={`/tv/${id}/cast`}>
-                  <li className="flex flex-col font-semibold text-1xl text-left my-6 hover:text-slate-400 duration-200 ">
+                  <li className="flex flex-col font-semibold text-1xl text-left my-6 hover:text-slate-400 text-slate-300 duration-200 ">
                     Tüm Oyuncular ve Ekip
                   </li>
                 </Link>
@@ -100,7 +100,7 @@ const [tvKey, setTvKey] = useState([]);
                 <TvRecommendation id={id} name={tvDetail?.name}/> 
               </article>
 
-              <aside className="w-3/12 divider grid gap-1">
+              <aside className="bg-slate-900 text-zinc-300 w-3/12 divider grid gap-1">
                 <article className="w-full mt-4 grid grid-cols-1 pb-4">
                   <figure className="space-y-1">
                     <h3 className="text-slate-300 dark:text-slate-400 font-bold">
@@ -130,7 +130,7 @@ const [tvKey, setTvKey] = useState([]);
                         <img
                           loading="lazy"
                           className="h-7  rounded-md"
-                          src={`https://image.tmdb.org/t/p/original/${network.logo_path}`}
+                           src={`${image}${network.logo_path}`}
                           alt={`${network.name}`}
                         />
                       </Link>
@@ -139,20 +139,20 @@ const [tvKey, setTvKey] = useState([]);
                 </article>
                 <article className="w-full  grid grid-cols-1 pb-4">
                   <figure className="space-y-1">
-                    <h3 className="text-slate-700 dark:text-slate-400 font-bold">
+                    <h3 className="text-slate-300 dark:text-slate-400 font-bold">
                       Tip
                     </h3>
-                    <p className="text-slate-700 dark:text-slate-400 font-light text-sm">
+                    <p className="text-slate-300 dark:text-slate-400 font-light text-sm">
                       {tvDetail?.type}
                     </p>
                   </figure>
                 </article>
                 <article className="w-full  grid grid-cols-1 pb-4">
                   <figure className="space-y-1">
-                    <h3 className="text-slate-700 dark:text-slate-400 font-bold">
+                    <h3 className="text-slate-300 dark:text-slate-400 font-bold">
                       Orjinal Dili
                     </h3>
-                    <p className="text-slate-700 dark:text-slate-400 font-light text-sm">                      
+                    <p className="text-slate-300 dark:text-slate-400 font-light text-sm">                      
                       {languages.filter(lang => lang.code === tvDetail?.original_language).map(lang => lang.name)}                      
                     </p>
                   </figure>
