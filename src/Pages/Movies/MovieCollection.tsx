@@ -51,22 +51,22 @@ function MovieCollection() {
               />
             </figure>
             <div className="lg:w-max p-4 ml-3 md:ml-0 space-y-8 absolute lg:left-72">
-              <h1 className="text-3xl  font-semibold leading-tight">
+              <h1 className="text-3xl text-slate-100  font-semibold leading-tight">
                 {movieCollect?.name}
-                <p className="text-sm font-light">
+                <p className="text-sm font-light text-slate-300">
                   {" "}
                   {movieDetail?.genres.map((genre) => (
                     <span key={genre.id}>{genre.name} </span>
                   ))}
                 </p>
               </h1>
-              <h2 className="hidden md:block text-2xl font-semibold leading-tight">
+              <h2 className="hidden md:block text-2xl text-slate-100 font-semibold leading-tight">
                 Özet
                 <p className="hidden md:block w-[760px] text-sm text-slate-200">
                   {movieCollect?.overview}
                 </p>
               </h2>
-              <h4 className="text-1xl font-semibold">
+              <h4 className="text-1xl font-semibold text-slate-100">
                 Film Sayısı:
                 <span className="text-slate-200">
                   {" "}
@@ -88,22 +88,22 @@ function MovieCollection() {
             </div>
           </div>
 
-          <div className="bg-slate-100 py-8  dark:bg-slate-900 dark:text-slate-100 text-slate-900 px-4">
+          <div className="py-8 ml-3 bg-slate-900 text-slate-100px-4">
             <div className="py-8">
               <div className="text-left">
-                <h2 className="text-3xl font-medium">Öne Çıkan Kadro</h2>
+                <h2 className="text-3xl font-medium text-slate-100">Öne Çıkan Kadro</h2>
               </div>
               <ul className="grid md:grid-cols-4 gap-5 mt-2">
                 {movieCredits?.cast.slice(0, 13).map((cast) => (
                   <Link to={`/person/${cast.id}`}>
                     <li
                       key={cast.id}
-                      className=" flex bg-white dark:bg-transparent relative rounded-lg dark:border dark:border-slate-500"
+                      className=" flex bg-slate-900 dark:bg-transparent relative rounded-lg dark:border dark:border-slate-500"
                     >
                       <img
                         className="w-14 h-16 rounded-sm object-cover object-top"
                         src={`${
-                          cast?.profile_path === null
+                          cast?.profile_path === null || cast.profile_path === ""
                             ? "/public/assets/nullUser.svg"
                             : `${image}${cast?.profile_path}`
                         }`}
@@ -126,19 +126,19 @@ function MovieCollection() {
             <hr />
             <div className="py-8">
               <div className="text-left">
-                <h2 className="text-3xl font-medium">Öne Çıkan Ekip</h2>
+                <h2 className="text-3xl font-medium text-slate-100">Öne Çıkan Ekip</h2>
               </div>
               <ul className="grid md:grid-cols-4 gap-5 mt-2">
                 {movieCredits?.crew.slice(0, 6).map((crew) => (
                   <Link to={`/person/${crew.id}`}>
                     <li
                       key={crew.id}
-                      className=" flex bg-white dark:bg-transparent relative rounded-lg dark:border dark:border-slate-500"
+                      className=" flex bg-slate-900 dark:bg-transparent relative rounded-lg dark:border dark:border-slate-500"
                     >
                       <img
                         className="w-14 h-16 rounded-sm object-cover object-top"
                         src={`${
-                          crew?.profile_path === null
+                          crew?.profile_path === null || crew.profile_path === "" 
                             ? "/public/assets/nullUser.svg"
                             : `${image}${crew?.profile_path}`
                         }`}
@@ -162,14 +162,14 @@ function MovieCollection() {
 
             <div className="py-8">
               <div className="text-left">
-                <h2 className="text-3xl font-medium">{movieCollect?.parts.length} Movies</h2>
+                <h2 className="text-3xl font-medium text-slate-100">{movieCollect?.parts.length} Movies</h2>
               </div>
               <ul className="grid md:grid-cols-1 gap-5 mt-2">
                 {movieCollect?.parts.map((movie) => (
                    <Link to={`/movie/${movie.id}-${movie.original_title.toLocaleLowerCase().replaceAll(".","-").replaceAll(",","-").replaceAll(" ","-").replaceAll("--","-").replace(":","").split(",",1)}`}>
                     <li
                       key={movie.id}
-                      className="max-w-max flex bg-white dark:bg-transparent relative rounded-lg dark:border dark:border-slate-500"
+                      className="max-w-max flex bg-slate-900 dark:bg-transparent relative rounded-lg dark:border dark:border-slate-500"
                     >
                       <img
                         className="w-28 h-38 rounded-sm object-cover object-top"
@@ -184,7 +184,7 @@ function MovieCollection() {
                         <p className="text-2xl text-slate-100 ml-3 font-semibold">
                           {movie.original_title}
                         </p>
-                          <span className="text-xs ml-3">{movie.release_date}</span>
+                          <span className="text-xs ml-3 text-slate-300">{movie.release_date}</span>
                         <p className="text-md ml-3 mt-5 text-slate-100">
                           {movie.overview.split(" ").slice(0, 60).join(" ")}...
                         </p>
