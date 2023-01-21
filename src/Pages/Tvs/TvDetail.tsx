@@ -19,31 +19,31 @@ function TvDetail() {
   const dispatch = useAppDispatch();
   const tvDetail = useAppSelector((state) => state.tvDetails.data);
   const status = useAppSelector((state) => state.tvDetails.loading);
-const [tvKey, setTvKey] = useState([]);
+  const [tvKey, setTvKey] = useState([]);
   useEffect(() => {
     dispatch(fetchTvDetail(tv_id!));
     axios(
       `https://api.themoviedb.org/3/tv/${tv_id}/keywords?api_key=a005a803cdec9237f52c2801d1f28661&language=tr-TR&include_adult=false`
     )
       .then((res) => res.data)
-      .then((data) => setTvKey(data))  
+      .then((data) => setTvKey(data));
   }, [dispatch, tv_id]);
-  
+
   return (
     <>
       {status === "pending" ? (
-        <Loading/>
+        <Loading />
       ) : (
         <>
-          <div className="flex px-4 py-8 md:py-6 flex-col md:flex-row text-slate-900 dark:text-slate-100 items-center bg-slate-900">            
+          <div className="flex px-4 py-8 md:py-6 flex-col md:flex-row text-slate-900 dark:text-slate-100 items-center bg-slate-900">
             <img
               loading="lazy"
               src={`${
-                tvDetail?.poster_path === ""?
-                "": 
-                `${image}${tvDetail?.poster_path}`
+                tvDetail?.poster_path === ""
+                  ? ""
+                  : `${image}${tvDetail?.poster_path}`
               }`}
-              alt={`${tvDetail?.name===null?"":""}`}
+              alt={`${tvDetail?.name === null ? "" : ""}`}
               className="hidden md:block w-40 h-60 left-2 top-36 md:left-3 lg:w-60 lg:h-96 opacity-100 z-10 absolute mx-4 object-cover object-center rounded-md"
             />
 
@@ -51,10 +51,12 @@ const [tvKey, setTvKey] = useState([]);
               <img
                 loading="lazy"
                 src={`${
-                  tvDetail?.backdrop_path === ""?
-                  "":`${image}${tvDetail?.backdrop_path}`}`}
+                  tvDetail?.backdrop_path === ""
+                    ? ""
+                    : `${image}${tvDetail?.backdrop_path}`
+                }`}
                 className="w-full h-[460px] object-top object-cover rounded-lg"
-                alt={`${tvDetail?.backdrop_path===null?"":""}`}
+                alt={`${tvDetail?.backdrop_path === null ? "" : ""}`}
               />
             </figure>
             <div className="lg:w-max p-4 space-y-4 absolute left-4   w-4/5 lg:left-72">
@@ -65,7 +67,9 @@ const [tvKey, setTvKey] = useState([]);
                   ({tvDetail?.first_air_date.slice(0, 4)})
                 </span>
               </h1>
-              <p className="hidden md:block w-[700px] text-slate-300">{tvDetail?.overview}</p>
+              <p className="hidden md:block w-[700px] text-slate-300">
+                {tvDetail?.overview}
+              </p>
               <p className="text-sm text-slate-200">
                 {tvDetail?.genres.map((genre) => (
                   <span key={genre.id}>{genre.name} </span>
@@ -84,23 +88,23 @@ const [tvKey, setTvKey] = useState([]);
                     Tüm Oyuncular ve Ekip
                   </li>
                 </Link>
-                 {tvDetail?.seasons !== null ? (
-                   <>
-                   <hr />
+                {tvDetail?.seasons !== null ? (
+                  <>
+                    <hr />
                     <TvSeasonsBackdrops
                       title={tvDetail?.name}
                       tv_id={id}
                       season_number={tvDetail?.last_episode_to_air?.season_number.toString()}
-                    /> 
+                    />
                   </>
                 ) : (
                   <></>
-                )}               
-                
-                <TvRecommendation id={id} name={tvDetail?.name}/> 
+                )}
+
+                <TvRecommendation id={id} name={tvDetail?.name} />
               </article>
 
-              <aside className="bg-slate-900 text-zinc-300 w-3/12 divider grid gap-1">
+              <aside className="bg-slate-900 text-zinc-300 lg:w-3/12 divider grid gap-1">
                 <article className="w-full mt-4 grid grid-cols-1 pb-4">
                   <figure className="space-y-1">
                     <h3 className="text-slate-300 dark:text-slate-400 font-bold">
@@ -121,16 +125,19 @@ const [tvKey, setTvKey] = useState([]);
                   </figure>
                 </article>
                 <article className="w-full space-y-2 grid grid-cols-1 pb-4">
-                <h3 className="text-slate-300 dark:text-slate-400 font-bold">
-                        {tvDetail?.networks.length !== 0 && tvDetail?.networks.length !== 1 ?"Ağlar":"Ağ"}
-                      </h3>
+                  <h3 className="text-slate-300 dark:text-slate-400 font-bold">
+                    {tvDetail?.networks.length !== 0 &&
+                    tvDetail?.networks.length !== 1
+                      ? "Ağlar"
+                      : "Ağ"}
+                  </h3>
                   {tvDetail?.networks.map((network) => (
-                    <figure key={network.id} className="space-y-2">                    
+                    <figure key={network.id} className="space-y-2">
                       <Link key={network.id} to={`/network/${network.id}`}>
                         <img
                           loading="lazy"
                           className="h-7  rounded-md"
-                           src={`${image}${network.logo_path}`}
+                          src={`${image}${network.logo_path}`}
                           alt={`${network.name}`}
                         />
                       </Link>
@@ -152,13 +159,17 @@ const [tvKey, setTvKey] = useState([]);
                     <h3 className="text-slate-300 dark:text-slate-400 font-bold">
                       Orjinal Dili
                     </h3>
-                    <p className="text-slate-300 dark:text-slate-400 font-light text-sm">                      
-                      {languages.filter(lang => lang.code === tvDetail?.original_language).map(lang => lang.name)}                      
+                    <p className="text-slate-300 dark:text-slate-400 font-light text-sm">
+                      {languages
+                        .filter(
+                          (lang) => lang.code === tvDetail?.original_language
+                        )
+                        .map((lang) => lang.name)}
                     </p>
                   </figure>
                 </article>
                 <article className="w-full mt-4 grid grid-cols-1 pb-4">
-                   <TvLabel /> 
+                  <TvLabel />
                 </article>
               </aside>
             </div>

@@ -13,7 +13,6 @@ import { fetchMovieDetail } from "../../redux/movies/movieDetailSlice";
 import Loading from "../../components/Loading";
 import { image } from "../../helper";
 
-
 function MovieDetail() {
   const { id } = useParams();
   const movie_id = id?.split("-")[0];
@@ -22,33 +21,31 @@ function MovieDetail() {
   const movieDetail = useAppSelector((state) => state.movieDetail.data);
   const status = useAppSelector((state) => state.movieDetail.loading);
   useEffect(() => {
-    dispatch(fetchMovieDetail(movie_id!));   
+    dispatch(fetchMovieDetail(movie_id!));
   }, [dispatch, movie_id]);
-
-
 
   return (
     <>
       {status === "pending" ? (
-        <Loading/>
+        <Loading />
       ) : (
         <>
           <div className="flex px-4 py-8 md:py-6 flex-col md:flex-row text-slate-900 dark:text-slate-100 items-center bg-slate-900">
             <img
               loading="lazy"
               src={`${
-                movieDetail?.poster_path === ""?
-                "": 
-                `${image}${movieDetail?.poster_path}`
+                movieDetail?.poster_path === ""
+                  ? ""
+                  : `${image}${movieDetail?.poster_path}`
               }`}
-              alt={`${movieDetail?.title===null?"":""}`}
+              alt={`${movieDetail?.title === null ? "" : ""}`}
               className="hidden md:block w-40 h-60 left-2 top-36 md:left-3 lg:w-60 lg:h-96 opacity-100 z-10 absolute mx-4 object-cover object-center rounded-md"
             />
 
             <figure className="w-full opacity-30 ">
               <img
                 loading="lazy"
-                 src={`${image}${movieDetail?.backdrop_path}`}
+                src={`${image}${movieDetail?.backdrop_path}`}
                 className="w-full h-[460px] object-top object-cover rounded-lg"
                 alt={`${movieDetail?.backdrop_path}`}
               />
@@ -83,7 +80,7 @@ function MovieDetail() {
                 </Link>
                 {movieDetail?.belongs_to_collection !== null ? (
                   <>
-                  <hr />
+                    <hr />
                     <MovieColletionBackDrop
                       title={movieDetail?.original_title}
                       id={movieDetail?.belongs_to_collection.id}
@@ -91,9 +88,9 @@ function MovieDetail() {
                   </>
                 ) : (
                   <></>
-                )}               
-                
-              <MovieRecommendation id={id} />
+                )}
+
+                <MovieRecommendation id={id} />
               </article>
 
               <aside className="bg-slate-900 text-zinc-300 lg:w-3/12 divider grid grid-cols-1 gap-1">

@@ -9,6 +9,7 @@ function Popular() {
   const [type, setType] = useState("with_watch_monetization_types=flatrate");
   const [popular, setPopular] = useState<Movies>();
   const [activeIndex, setActiveIndex] = useState(0);
+  const [loading, setLoading] = useState<boolean>(true);
   const handleClick = (index: number, type: string) => {
     setType(type);
     setActiveIndex(index);
@@ -19,9 +20,10 @@ function Popular() {
       `
     )
       .then((res) => res.data)
-      .then((data) => setPopular(data));
+      .then((data) => setPopular(data))
+      .catch((err) => console.log(err))
+      .finally(() => setLoading(false));
   }, [type]);
-
 
   return (
     <div>
@@ -29,27 +31,44 @@ function Popular() {
         <h3 className="mr-3 lg:mr-6 lg:text-2xl text-1xl text-left text-zinc-300 font-semibold w-14 lg:w-max">
           What's Popular
         </h3>
-        <div className="flex-col lg:text-2xl rounded-xl shadow-sm " role="group">
+        <div
+          className="flex-col lg:text-2xl rounded-xl shadow-sm "
+          role="group"
+        >
           <button
-          onClick={() => handleClick(0, "with_watch_monetization_types=flatrate")}            
+            onClick={() =>
+              handleClick(0, "with_watch_monetization_types=flatrate")
+            }
             className={`
-            ${activeIndex === 0 ? "bg-cyan-400 transition duration-500 ease-linear" : ""}
+            ${
+              activeIndex === 0
+                ? "bg-cyan-400 transition duration-500 ease-linear"
+                : ""
+            }
             px-4 py-2 text-xs lg:text-sm font-medium  text-gray-900 bg-white border border-gray-200 rounded-l-xl dark:bg-gray-700 dark:border-gray-600 dark:text-white`}
           >
             Streaming
-          </button>          
+          </button>
           <button
-            onClick={() => handleClick(2, "with_watch_monetization_types=rent")} 
+            onClick={() => handleClick(2, "with_watch_monetization_types=rent")}
             className={`
-            ${activeIndex === 2 ? "bg-cyan-400 transition duration-500 ease-linear" : ""}
+            ${
+              activeIndex === 2
+                ? "bg-cyan-400 transition duration-500 ease-linear"
+                : ""
+            }
             px-4 py-2 text-xs lg:text-sm font-medium  text-gray-900 bg-white border border-gray-200  dark:bg-gray-700 dark:border-gray-600 dark:text-white`}
           >
             For Rent
           </button>
           <button
-            onClick={() => handleClick(3, "with_watch_monetization_type=3|2")} 
+            onClick={() => handleClick(3, "with_watch_monetization_type=3|2")}
             className={`
-            ${activeIndex === 3 ? "bg-cyan-400 transition duration-500 ease-linear" : ""}
+            ${
+              activeIndex === 3
+                ? "bg-cyan-400 transition duration-500 ease-linear"
+                : ""
+            }
             px-4 py-2 text-xs lg:text-sm font-medium  text-gray-900 bg-white border border-gray-200 rounded-r-xl dark:bg-gray-700 dark:border-gray-600 dark:text-white`}
           >
             In Theaters
@@ -94,7 +113,7 @@ function Popular() {
             </Link>
           ))}
         </ul>
-      </div>      
+      </div>
     </div>
   );
 }

@@ -19,7 +19,7 @@ function MovieLabel() {
       {" "}
       <h3 className="text-xl font-semibold ">Etikler</h3>
       <div className="md:inline">
-        {movieLabel?.keywords !== null
+        {movieLabel?.keywords !== null && movieLabel?.keywords.length! > 0
           ? movieLabel?.keywords.map((key) => (
               <button
                 key={key.id}

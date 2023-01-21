@@ -63,7 +63,7 @@ function TvSeasonDetail() {
       </div>
       <div className="text-gray-100 body-font overflow-hidden">
         <div className="pb-6 mx-10">
-          <div className="">
+          <div className="space-y-10">
             {season_episodes?.episodes?.map((episodes) => (
               <div
                 key={episodes.id}
@@ -73,7 +73,7 @@ function TvSeasonDetail() {
                   {/* <Link to={`/tv/${tv_id}/season/${season_number}/episode/${episodes.episode_number}`}> */}
                   <img
                     loading="lazy"
-                    className="h-36 w-56 rounded-md"
+                    className="h-36 mb-2 ml-5 md:ml-0 md:w-56 rounded-md"
                     src={`${
                       episodes?.still_path === null
                         ? "/public/assets/tv_null.svg"
@@ -85,7 +85,7 @@ function TvSeasonDetail() {
                 </div>
                 <div className="md:flex-grow ml-5">
                   <div className="flex justify-between">
-                    <h2 className="text-2xl font-medium text-gray-100 title-font">
+                    <h2 className="text-xl md:text-2xl font-medium text-gray-100 title-font">
                       {episodes.name}
                     </h2>
                     <h2 className="text-gray-500 text-sm">
