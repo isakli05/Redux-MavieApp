@@ -6,6 +6,7 @@ import { fetchMovieCollect } from "../../redux/movies/movieCollectSlice";
 import { fetchMovieCredits } from "../../redux/movies/movieCreditsSlice";
 import { fetchMovieDetail } from "../../redux/movies/movieDetailSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
+import nullUser from "../../assets/nullUser.png";
 
 function MovieCollection() {
   const { coll_id } = useParams();
@@ -104,7 +105,7 @@ function MovieCollection() {
                         className="w-14 h-16 rounded-sm object-cover object-top"
                         src={`${
                           cast?.profile_path === null || cast.profile_path === ""
-                            ? "/public/assets/nullUser.svg"
+                            ? {nullUser}
                             : `${image}${cast?.profile_path}`
                         }`}
                         alt={`${cast?.name}`}
@@ -139,7 +140,7 @@ function MovieCollection() {
                         className="w-14 h-16 rounded-sm object-cover object-top"
                         src={`${
                           crew?.profile_path === null || crew.profile_path === "" 
-                            ? "/public/assets/nullUser.svg"
+                            ? {nullUser}
                             : `${image}${crew?.profile_path}`
                         }`}
                         alt={`${crew?.name}`}
@@ -175,7 +176,7 @@ function MovieCollection() {
                         className="w-28 h-38 rounded-sm object-cover object-top"
                         src={`${
                           movie?.poster_path === null
-                            ? "/public/assets/nullUser.svg"
+                            ? {nullUser}
                             : `${image}${movie?.poster_path}`
                         }`}
                         alt={`${movie?.original_title}`}
