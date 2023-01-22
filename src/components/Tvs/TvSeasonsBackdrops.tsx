@@ -25,7 +25,7 @@ function TvSeasonsBackdrops({ tv_id, title, season_number }: TvSeasonsProps) {
       <h3 className="text-2xl mb-5 text-left text-zinc-300 font-semibold">
         Şuanki Sezon
       </h3>
-      <figure className="w-full ">
+      <figure className="w-full text-zinc-300">
         <Link
           to={`/tv/${tv_id}/season/${tvSeasons?.season_number}`}
           className=""
@@ -37,23 +37,23 @@ function TvSeasonsBackdrops({ tv_id, title, season_number }: TvSeasonsProps) {
                         ? "/assets/tv_null.svg"
                         : `${image}${tvSeasons?.poster_path}`
                     }`}
-            className="h-48 w-32 object-top object-cover rounded-lg"
+            className="h-48 w-32 object-top object-cover rounded-lg text-zinc-300"
             alt={`${tvSeasons?.name}`}
           />
         </Link>
       </figure>
 
-      <div className="lg:w-full p-4 absolute left-36 top-16">
+      <div className="lg:w-full p-4 absolute left-36 top-16 text-zinc-300">
       <Link
           to={`/tv/${tv_id}/season/${tvSeasons?.season_number}`}
           className=""
         >
-        <p className="text-lg font-semibold leading-tight mb-2">
+        <p className="text-lg font-semibold leading-tight mb-2 ">
           {tvSeasons?.name}          
         </p>
         </Link>
 
-        <p className="text-md font-semibold leading-tight">
+        <p className="text-md font-semibold leading-tight text-zinc-300">
           {tvSeasons?.air_date?.slice(0, 4)} | {tvSeasons?.episodes.length} Bölüm
         </p>
         <h1 className="hidden lg:block text-slate-300 mt-9 lg:w-11/12">

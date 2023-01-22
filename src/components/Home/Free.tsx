@@ -51,7 +51,7 @@ function Free() {
       <div className="m-5">
         <ul className="flex overflow-scroll overflow-y-hidden">
           {watch?.results.map((movie) => (
-            <Link
+            <Link            
               key={movie.id}
               to={`/${type}/${movie.id}-${
                 type === "tv"

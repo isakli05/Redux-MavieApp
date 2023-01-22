@@ -16,7 +16,7 @@ function PersonDetails() {
   }, []);
 
   return (
-    <div className="bg-white md:py-8 dark:bg-slate-900 dark:text-slate-100 text-slate-900 px-4 flex">
+    <div className="md:py-8 bg-slate-900 text-slate-100 px-4 flex">
       <img
         loading="lazy"
         src={`${
@@ -37,7 +37,7 @@ function PersonDetails() {
           <div className="px-2 md:px-4">
             <div className="hidden md:block">
             <h3 className="text-2xl font-semibold">Biyografi</h3>
-            <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+            <p className="text-slate-400 leading-relaxed">
               {cast?.biography === ""
                 ? "Biyografi bulunamadı"
                 : cast?.biography}
@@ -49,7 +49,7 @@ function PersonDetails() {
             <ul className="flex flex-col lg:flex-row gap-5">
               <li className="flex flex-col items-left">
                 <h5 className="font-bold text-xl">Bilinen işi</h5>
-                <p className="text-slate-800 dark:text-slate-100 font-medium ">
+                <p className="text-slate-100 font-medium ">
                   {cast?.known_for_department.toString() === "Acting"
                     ? "Oyuncu"
                     : cast?.known_for_department}
@@ -57,19 +57,19 @@ function PersonDetails() {
               </li>
               <li className="flex flex-col items-left">
                 <h5 className="font-bold text-xl">Cinsiyet</h5>
-                <p className="text-slate-800 dark:text-slate-100 font-medium ">
+                <p className="text-slate-100 font-medium ">
                   {cast?.gender.toString() === "1" ? "Kadın" : "Erkek"}
                 </p>
               </li>
               <li className="flex flex-col items-left">
                 <h5 className="font-bold text-xl">Doğum Günü</h5>
-                <p className="text-slate-800 dark:text-slate-100 font-medium ">
+                <p className="text-slate-100 font-medium ">
                   {cast?.birthday}
                 </p>
               </li>
               <li className="flex flex-col items-left">
                 <h5 className="font-bold text-xl">Doğum Yeri</h5>
-                <p className="text-slate-800 dark:text-slate-100 font-medium ">
+                <p className="text-slate-100 font-medium ">
                   {cast?.place_of_birth}
                 </p>
               </li>

@@ -28,7 +28,7 @@ function Popular() {
   return (
     <div>
       <div className="flex m-5 ">
-        <h3 className="mr-3 lg:mr-6 lg:text-2xl text-1xl text-left text-zinc-300 font-semibold w-14 lg:w-max">
+        <h3 className="mr-3 lg:mr-6 lg:text-2xl text-sm md:text-1xl text-left text-zinc-300 font-semibold w-14 lg:w-max">
           What's Popular
         </h3>
         <div
@@ -45,7 +45,7 @@ function Popular() {
                 ? "bg-cyan-400 transition duration-500 ease-linear"
                 : ""
             }
-            px-4 py-2 text-xs lg:text-sm font-medium  text-gray-900 bg-white border border-gray-200 rounded-l-xl dark:bg-gray-700 dark:border-gray-600 dark:text-white`}
+            p-2 md:px-4 md:py-2 text-xs lg:text-sm font-medium  text-gray-900 bg-white border border-gray-200 rounded-l-xl dark:bg-gray-700 dark:border-gray-600 dark:text-white`}
           >
             Streaming
           </button>
@@ -57,7 +57,7 @@ function Popular() {
                 ? "bg-cyan-400 transition duration-500 ease-linear"
                 : ""
             }
-            px-4 py-2 text-xs lg:text-sm font-medium  text-gray-900 bg-white border border-gray-200  dark:bg-gray-700 dark:border-gray-600 dark:text-white`}
+            p-2 md:px-4 md:py-2 text-xs lg:text-sm font-medium  text-gray-900 bg-white border border-gray-200  dark:bg-gray-700 dark:border-gray-600 dark:text-white`}
           >
             For Rent
           </button>
@@ -69,7 +69,7 @@ function Popular() {
                 ? "bg-cyan-400 transition duration-500 ease-linear"
                 : ""
             }
-            px-4 py-2 text-xs lg:text-sm font-medium  text-gray-900 bg-white border border-gray-200 rounded-r-xl dark:bg-gray-700 dark:border-gray-600 dark:text-white`}
+            p-2 md:px-4 md:py-2 text-xs lg:text-sm font-medium  text-gray-900 bg-white border border-gray-200 rounded-r-xl dark:bg-gray-700 dark:border-gray-600 dark:text-white`}
           >
             In Theaters
           </button>
@@ -79,7 +79,7 @@ function Popular() {
       <div className="m-5">
         <ul className="flex overflow-scroll overflow-y-hidden">
           {popular?.results.map((movie) => (
-            <Link
+            <Link            
               key={movie.id}
               to={`/movie/${movie.id}-${movie.original_title
                 .toLocaleLowerCase()
