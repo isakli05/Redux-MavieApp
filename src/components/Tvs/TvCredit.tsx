@@ -36,7 +36,7 @@ console.log(tvCredits);
                     className="h-44  rounded-md"
                     src={`${
                       cast?.profile_path === null
-                        ? "/public/assets/nullUser.svg"
+                        ? "/src/assets/nullUser.svg"
                         : `${image}${cast?.profile_path}`
                     }`}
                     alt={`${cast?.name}`}

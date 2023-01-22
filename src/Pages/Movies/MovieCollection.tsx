@@ -88,7 +88,7 @@ function MovieCollection() {
             </div>
           </div>
 
-          <div className="py-8 ml-3 bg-slate-900 text-slate-100px-4">
+          <div className="py-8 m-3 bg-slate-900 text-slate-100px-4">
             <div className="py-8">
               <div className="text-left">
                 <h2 className="text-3xl font-medium text-slate-100">Öne Çıkan Kadro</h2>
@@ -104,7 +104,7 @@ function MovieCollection() {
                         className="w-14 h-16 rounded-sm object-cover object-top"
                         src={`${
                           cast?.profile_path === null || cast.profile_path === ""
-                            ? "/public/assets/nullUser.svg"
+                            ? "/src/assets/nullUser.svg"
                             : `${image}${cast?.profile_path}`
                         }`}
                         alt={`${cast?.name}`}
@@ -139,7 +139,7 @@ function MovieCollection() {
                         className="w-14 h-16 rounded-sm object-cover object-top"
                         src={`${
                           crew?.profile_path === null || crew.profile_path === "" 
-                            ? "/public/assets/nullUser.svg"
+                            ? "/src/assets/nullUser.svg"
                             : `${image}${crew?.profile_path}`
                         }`}
                         alt={`${crew?.name}`}
@@ -175,7 +175,7 @@ function MovieCollection() {
                         className="w-28 h-38 rounded-sm object-cover object-top"
                         src={`${
                           movie?.poster_path === null
-                            ? "/public/assets/nullUser.svg"
+                            ? "/src/assets/nullUser.svg"
                             : `${image}${movie?.poster_path}`
                         }`}
                         alt={`${movie?.original_title}`}

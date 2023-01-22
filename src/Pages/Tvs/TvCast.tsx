@@ -42,7 +42,7 @@ function TvCast() {
                     className="w-16"
                     src={`${
                       cast?.profile_path === null
-                        ? "/public/assets/nullUser.svg"
+                        ? "/src/assets/nullUser.svg"
                         : `${image}${cast?.profile_path}`
                     }`}
                     alt={cast.name}
@@ -72,7 +72,7 @@ function TvCast() {
                     className="w-16"
                     src={`${
                       crew?.profile_path === null
-                        ? "/public/assets/nullUser.svg"
+                        ? "/src/assets/nullUser.svg"
                         : `${image}${crew?.profile_path}`
                     }`}
                     alt={crew.name}

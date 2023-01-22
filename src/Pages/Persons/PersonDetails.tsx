@@ -21,7 +21,7 @@ function PersonDetails() {
         loading="lazy"
         src={`${
          cast?.profile_path === null
-            ? "/public/assets/nullUser.svg"
+            ? "/src/assets/nullUser.svg"
             : `${image}/${cast?.profile_path}`
         }`}
         alt={cast?.name}

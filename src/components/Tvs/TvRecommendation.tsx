@@ -47,7 +47,7 @@ function TvRecommendation({ id,name }: TvRecommendationProps) {
                   className="h-36 w-64 object-cover object-center rounded-md"
                   src={`${
                     tv?.poster_path === null
-                      ? "/public/assets/tv_null.svg"
+                      ? "/src/assets/tv_null.svg"
                       : `${image}${tv?.poster_path}`
                   }`}
                   alt=""

@@ -37,7 +37,7 @@ function MovieCredit({ id }: MovieCreditsProps) {
                       className="h-44 w-[140px] rounded-t-lg rounded-tr-lg"
                       src={`${
                         cast?.profile_path === null
-                          ? "/public/assets/nullUser.svg"
+                          ? "/src/assets/nullUser.svg"
                           : `${image}${cast?.profile_path}`
                       }`}
                       alt={`${cast?.name}`}

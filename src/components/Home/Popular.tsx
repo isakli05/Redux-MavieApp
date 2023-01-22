@@ -96,7 +96,7 @@ function Popular() {
                     className="h-56 w-36 object-cover object-top rounded-md"
                     src={`${
                       movie?.poster_path === null
-                        ? "/public/assets/nullUser.svg"
+                        ? "/src/assets/nullUser.svg"
                         : `${image}${movie?.poster_path}`
                     }`}
                     alt=""

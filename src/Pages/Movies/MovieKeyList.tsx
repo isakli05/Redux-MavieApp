@@ -53,7 +53,7 @@ function MovieKeyList() {
                       className="h-96 w-[260px] md:w-24 md:h-36 rounded-md ml-12 lg:ml-0"
                       src={`${
                         movie?.poster_path === null || ""
-                          ? "/public/assets/tv_null.svg"
+                          ? "/src/assets/tv_null.svg"
                           : `${image}${movie?.poster_path}`
                       }`}
                       alt={`${movie?.title}`}
