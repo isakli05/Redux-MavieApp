@@ -76,7 +76,7 @@ function TvSeasonDetail() {
                     className="h-36 mb-2 ml-5 md:ml-0 md:w-56 rounded-md"
                     src={`${
                       episodes?.still_path === null
-                        ? "/public/assets/tv_null.svg"
+                        ? "/assets/tv_null.svg"
                         : `${image}${episodes?.still_path}`
                     }`}
                     alt={`${episodes?.name}`}
