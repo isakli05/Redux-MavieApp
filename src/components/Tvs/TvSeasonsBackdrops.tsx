@@ -34,7 +34,7 @@ function TvSeasonsBackdrops({ tv_id, title, season_number }: TvSeasonsProps) {
             loading="lazy"
             src={`${
                       tvSeasons?.poster_path === null
-                        ? "/src/assets/tv_null.svg"
+                        ? "/public/assets/tv_null.svg"
                         : `${image}${tvSeasons?.poster_path}`
                     }`}
             className="h-48 w-32 object-top object-cover rounded-lg"

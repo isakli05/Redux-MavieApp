@@ -104,7 +104,7 @@ function MovieCollection() {
                         className="w-14 h-16 rounded-sm object-cover object-top"
                         src={`${
                           cast?.profile_path === null || cast.profile_path === ""
-                            ? "/src/assets/nullUser.svg"
+                            ? "/public/assets/nullUser.svg"
                             : `${image}${cast?.profile_path}`
                         }`}
                         alt={`${cast?.name}`}
@@ -139,7 +139,7 @@ function MovieCollection() {
                         className="w-14 h-16 rounded-sm object-cover object-top"
                         src={`${
                           crew?.profile_path === null || crew.profile_path === "" 
-                            ? "/src/assets/nullUser.svg"
+                            ? "/public/assets/nullUser.svg"
                             : `${image}${crew?.profile_path}`
                         }`}
                         alt={`${crew?.name}`}
@@ -175,7 +175,7 @@ function MovieCollection() {
                         className="w-28 h-38 rounded-sm object-cover object-top"
                         src={`${
                           movie?.poster_path === null
-                            ? "/src/assets/nullUser.svg"
+                            ? "/public/assets/nullUser.svg"
                             : `${image}${movie?.poster_path}`
                         }`}
                         alt={`${movie?.original_title}`}

@@ -22,7 +22,7 @@ function TvSeasonBanner({ tv_id }: { tv_id: string }) {
               className="w-16 mr-2"
               src={`${
                 tv_season?.poster_path === null
-                  ? "/src/assets/tv_null.svg"
+                  ? "/public/assets/tv_null.svg"
                   : `${image}${tv_season?.poster_path}`
               }`}
               alt={tv_season?.name}

@@ -36,7 +36,7 @@ function TvSeasonsList() {
                             className="h-36  w-24 rounded-md"
                             src={`${
                               season?.poster_path === null
-                                ? "/src/assets/tv_null.svg"
+                                ? "/public/assets/tv_null.svg"
                                 : `${image}${season?.poster_path}`
                             }`}
                             alt={`${season?.name}`}

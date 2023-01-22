@@ -30,7 +30,7 @@ function Persons() {
           <article className="flex flex-col">
             <Link to={`/person/${person.id}`}>
               <img
-                src={`${person?.profile_path===null?'/src/assets/nullUser.svg':`${image}${person?.profile_path}`}`}
+                src={`${person?.profile_path===null?'/public/assets/nullUser.svg':`${image}${person?.profile_path}`}`}
                 alt={person.name}
                 className="w-full lg:h-56 object-cover object-center rounded-md"
                 loading="lazy"

@@ -72,7 +72,7 @@ function Free() {
                     className="h-56 w-36 object-cover object-top rounded-md"
                     src={`${
                       movie?.poster_path === null
-                        ? "/src/assets/nullUser.svg"
+                        ? "/public/assets/nullUser.svg"
                         : `${image}${movie?.poster_path}`
                     }`}
                     alt=""

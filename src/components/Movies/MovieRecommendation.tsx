@@ -44,7 +44,7 @@ function MovieRecommendation({ id }: MovieRecommendationProps) {
                   className="h-40 w-72 object-cover object-center rounded-md"
                   src={`${
                     movie?.poster_path === null
-                      ? "/src/assets/nullUser.svg"
+                      ? "/public/assets/nullUser.svg"
                       : `${image}${movie?.poster_path}`
                   }`}
                   alt=""

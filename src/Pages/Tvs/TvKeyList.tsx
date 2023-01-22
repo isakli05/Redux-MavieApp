@@ -88,7 +88,7 @@ function TvKeyList() {
                       className="h-36 w-24 rounded-md"
                       src={`${
                         tv?.poster_path === null
-                          ? "/src/assets/tv_null.svg"
+                          ? "/public/assets/tv_null.svg"
                           : `${image}${tv?.poster_path}`
                       }`}
                       alt={`${tv?.original_name}`}
