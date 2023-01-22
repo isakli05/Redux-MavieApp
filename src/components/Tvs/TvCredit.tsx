@@ -61,7 +61,7 @@ console.log(tvCredits);
           ))
           .slice(0, 9)}
         <Link to={`/tv/${id}/cast`}>
-          <li className="flex flex-col text-center h-44 items-center justify-center hover:text-slate-400 duration-200 ">
+          <li className="flex flex-col text-center h-44 items-center justify-center hover:text-slate-400 duration-200 text-slate-200">
             Tümünü Gör<i className="fa-solid fa-arrow-right"></i>
           </li>
         </Link>

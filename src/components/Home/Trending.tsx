@@ -59,6 +59,7 @@ function Trending() {
               <li className="flex flex-col w-40 gap-x-5 shadow rounded-lg mb-2">
                 <figure className="flex-col space-y-2">
                   <img
+                    loading="eager"
                     className="h-56 w-36 object-cover object-top rounded-md"
                     src={`${
                       movie?.poster_path === null
