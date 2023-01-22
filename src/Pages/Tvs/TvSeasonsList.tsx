@@ -20,20 +20,20 @@ function TvSeasonsList() {
             <TvSeasonListBanner tv_id={tv_id!} />
 
             <div className="text-gray-600 body-font overflow-hidden">
-              <div className="pb-6 mx-10">
+              <div className="pb-6 mx-5 md:mx-10">
                 <div className="">
                   {tvSeasons?.seasons.map((season) => (
                     <div
                       key={season.id}
-                      className="py-3 flex flex-wrap md:flex-nowrap"
+                      className="py-3 flex md:flex-nowrap mb-10"
                     >
-                      <div className="flex-shrink-0 flex flex-col ">
+                      <div className="flex-shrink-0 justify-end flex flex-col ">
                         <Link
                           to={`/tv/${tv_id}/season/${season.season_number}`}
                         >
                           <img
                             loading="lazy"
-                            className="h-36  w-24 rounded-md"
+                            className="md:h-36 w-24 rounded-md"
                             src={`${
                               season?.poster_path === null
                                 ? "/assets/tv_null.svg"
@@ -48,17 +48,17 @@ function TvSeasonsList() {
                           <Link
                             to={`/tv/${tv_id}/season/${season.season_number}`}
                           >
-                            <h2 className="text-2xl font-medium text-gray-900 title-font">
+                            <h2 className="text-2xl font-medium text-gray-200 title-font">
                               {season.name}
                             </h2>
                           </Link>
 
-                          <h2 className="text-gray-500 text-sm flex items-center">
+                          <h2 className="text-gray-400 text-sm flex items-center">
                             {season.air_date?.slice(0, 4)} |{" "}
                             {season.episode_count} Bölüm
                           </h2>
                         </div>
-                        <p className="leading-relaxed mt-6">
+                        <p className="leading-relaxed mt-3 md:mt-6 text-gray-200">
                           {season.overview === ""
                             ? `${tv_name?.toLocaleUpperCase()} ${
                                 season.season_number
