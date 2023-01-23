@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { fetchTvShows } from "../../redux/tvShows/tvShowsSlice";
 import { Link } from "react-router-dom";
+import { image } from "../../helper";
 
 function Tvs() {
   const tvs = useAppSelector((state) => state.tvs);
@@ -30,7 +31,11 @@ function Tvs() {
               <Link to={`/tv/${tv.id}-${tv.original_name.toLowerCase().replaceAll(".","-").replaceAll(",","-").replaceAll(" ","-").replaceAll("--","-").replace(":","").split(",",1)}`}>
               <div className="lg:h-[337px]">
                 <img
-                  src={`https://image.tmdb.org/t/p/original${tv.poster_path}`}
+                src={`${
+                  tv?.poster_path === null || tv?.poster_path === ""
+                    ? "/assets/tv_null.svg"
+                    : `${image}${tv.poster_path}`
+                }`}                  
                   alt={tv.name}
                   className="w-full h-full object-cover object-center rounded-md"
                   loading="lazy"

@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { fetchMovies } from "../../redux/movies/moviesSlice";
 import { Link } from "react-router-dom";
+import { image } from "../../helper";
 
 function Movies() {
   const movies = useAppSelector((state) => state.movies);
@@ -40,7 +41,11 @@ function Movies() {
               >
                 <div className="lg:h-[337px]">
                   <img
-                    src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                  src={`${
+                    movie?.poster_path === null || movie?.poster_path === ""
+                      ? "/assets/tv_null.svg"
+                      : `${image}${movie?.poster_path}`
+                  }`}                      
                     alt={movie.title}
                     className="w-full h-full object-cover object-center rounded-md"
                     loading="lazy"

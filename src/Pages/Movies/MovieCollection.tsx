@@ -37,7 +37,11 @@ function MovieCollection() {
           <div className="flex px-4 py-8 md:py-6 flex-col md:flex-row text-slate-900 dark:text-slate-100 items-center  dark:bg-slate-900">
             <img
               loading="lazy"
-              src={`https://image.tmdb.org/t/p/original${movieCollect?.poster_path}`}
+              src={`${
+                movieCollect?.poster_path === null || movieCollect?.poster_path === ""
+                  ? "/assets/tv_null.svg"
+                  : `${image}${movieCollect?.poster_path}`
+              }`}            
               alt={`${movieCollect?.name}`}
               className="hidden md:block w-60 h-96 opacity-100 z-10 absolute mx-4 object-cover object-center rounded-md"
             />
