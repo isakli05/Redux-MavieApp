@@ -43,9 +43,9 @@ function Popular() {
             ${
               activeIndex === 0
                 ? "bg-cyan-400 transition duration-500 ease-linear"
-                : ""
+                : "bg-white"
             }
-            p-2 md:px-4 md:py-2 text-xs lg:text-sm font-medium  text-gray-900 bg-white border border-gray-200 rounded-l-xl dark:bg-gray-700 dark:border-gray-600 dark:text-white`}
+            p-2 md:px-4 md:py-2 text-xs lg:text-sm font-medium  text-gray-900  border border-gray-200 rounded-l-xl dark:bg-gray-700 dark:border-gray-600 dark:text-white`}
           >
             Streaming
           </button>
@@ -55,9 +55,9 @@ function Popular() {
             ${
               activeIndex === 2
                 ? "bg-cyan-400 transition duration-500 ease-linear"
-                : ""
+                : "bg-white"
             }
-            p-2 md:px-4 md:py-2 text-xs lg:text-sm font-medium  text-gray-900 bg-white border border-gray-200  dark:bg-gray-700 dark:border-gray-600 dark:text-white`}
+            p-2 md:px-4 md:py-2 text-xs lg:text-sm font-medium  text-gray-900  border border-gray-200  dark:bg-gray-700 dark:border-gray-600 dark:text-white`}
           >
             For Rent
           </button>
@@ -67,9 +67,9 @@ function Popular() {
             ${
               activeIndex === 3
                 ? "bg-cyan-400 transition duration-500 ease-linear"
-                : ""
+                : "bg-white"
             }
-            p-2 md:px-4 md:py-2 text-xs lg:text-sm font-medium  text-gray-900 bg-white border border-gray-200 rounded-r-xl dark:bg-gray-700 dark:border-gray-600 dark:text-white`}
+            p-2 md:px-4 md:py-2 text-xs lg:text-sm font-medium  text-gray-900  border border-gray-200 rounded-r-xl dark:bg-gray-700 dark:border-gray-600 dark:text-white`}
           >
             In Theaters
           </button>

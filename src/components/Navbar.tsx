@@ -1,6 +1,6 @@
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
@@ -30,7 +30,7 @@ function Navbar() {
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
                   <span className="md:block text-slate-100 dark:text-slate-100 font-bold lg:text-2xl">
-                    <NavLink to={"/"}>LMDB</NavLink>
+                    <Link to={"/"}>LMDB</Link>
                   </span>
                 </div>
                 <div className="hidden  sm:ml-6 sm:block">
@@ -50,28 +50,28 @@ function Navbar() {
 
                         <ul className="absolute hidden  text-gray-700 min-w-max pt-1 group-hover:block">
                           <li className="hover:cursor-pointer">
-                            <NavLink
+                            <Link
                               className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
                               to={"/movie"}
                             >
                               Popüler
-                            </NavLink>
+                            </Link>
                           </li>
                           <li className="hover:cursor-pointer">
-                            <NavLink
+                            <Link
                               className="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
                               to={"/movie/now-playing"}
                             >
                               Gösterimdekiler
-                            </NavLink>
+                            </Link>
                           </li>
                           <li className="hover:cursor-pointer">
-                            <NavLink
+                            <Link
                               className="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
                               to={"/movie/upcoming"}
                             >
                               Yakında
-                            </NavLink>
+                            </Link>
                           </li>
                         </ul>
                       </div>
@@ -92,28 +92,28 @@ function Navbar() {
 
                         <ul className="absolute hidden text-gray-700 min-w-max pt-1 group-hover:block">
                           <li className="hover:cursor-pointer">
-                            <NavLink
+                            <Link
                               className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
                               to={"/tv"}
                             >
                               Popüler
-                            </NavLink>
+                            </Link>
                           </li>
                           <li className="hover:cursor-pointer">
-                            <NavLink
+                            <Link
                               className="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
                               to={"/tv/airing-today"}
                             >
                               Günün Programı
-                            </NavLink>
+                            </Link>
                           </li>
                           <li className="hover:cursor-pointer">
-                            <NavLink
+                            <Link
                               className="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
                               to={"/tv/on-the-air"}
                             >
                               Televizyonda
-                            </NavLink>
+                            </Link>
                           </li>
                         </ul>
                       </div>
@@ -134,12 +134,12 @@ function Navbar() {
 
                         <ul className="absolute hidden text-gray-700 min-w-max pt-1 group-hover:block">
                           <li className="hover:cursor-pointer">
-                            <NavLink
+                            <Link
                               className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
                               to={"/person"}
                             >
                               Popüler Kişiler
-                            </NavLink>
+                            </Link>
                           </li>
                         </ul>
                       </div>
@@ -151,8 +151,8 @@ function Navbar() {
           </div>
 
           {/* Mobil Menü */}
-          <Disclosure.Panel className="sm:hidden transition-all ease-out duration-500 z-50">
-            <ul className="z-50 md:flex space-x-4 dark:text-slate-100 text-slate-900">
+          <Disclosure.Panel className="sm:hidden z-50">
+            <ul className="z-50 md:flex space-x-4  dark:text-slate-100 text-slate-900">
               {/* Filmler */}
               <li className="px-4 py-2 hover:cursor-pointer w-20">
                 <div className="group lg:inline-flex relative">
@@ -169,28 +169,28 @@ function Navbar() {
 
                   <ul className="ml-28 lg:ml-0 -mt-10 lg:-mt-10  absolute hidden text-gray-700 min-w-max pt-1 group-hover:block">
                     <li className="hover:cursor-pointer">
-                      <NavLink
+                      <Link
                         className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
                         to={"/movie"}
                       >
                         Popüler
-                      </NavLink>
+                      </Link>
                     </li>
                     <li className="hover:cursor-pointer">
-                      <NavLink
+                      <Link
                         className="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
                         to={"/movie/now-playing"}
                       >
                         Gösterimdekiler
-                      </NavLink>
+                      </Link>
                     </li>
                     <li className="hover:cursor-pointer">
-                      <NavLink
+                      <Link
                         className="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
                         to={"/movie/upcoming"}
                       >
                         Yakında
-                      </NavLink>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -211,28 +211,28 @@ function Navbar() {
 
                   <ul className="ml-28 lg:ml-0 -mt-10 lg:-mt-10 absolute hidden text-gray-700 min-w-max pt-1 group-hover:block">
                     <li className="hover:cursor-pointer">
-                      <NavLink
+                      <Link
                         className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
                         to={"/tv"}
                       >
                         Popüler
-                      </NavLink>
+                      </Link>
                     </li>
                     <li className="hover:cursor-pointer">
-                      <NavLink
+                      <Link
                         className="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
                         to={"/tv/airing-today"}
                       >
                         Günün Programı
-                      </NavLink>
+                      </Link>
                     </li>
                     <li className="hover:cursor-pointer">
-                      <NavLink
+                      <Link
                         className="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
                         to={"/tv/on-the-air"}
                       >
                         Televizyonda
-                      </NavLink>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -253,12 +253,12 @@ function Navbar() {
 
                   <ul className="ml-28 lg:ml-0 -mt-10 lg:-mt-10 absolute hidden text-gray-700 min-w-max pt-1 group-hover:block">
                     <li className="hover:cursor-pointer">
-                      <NavLink
+                      <Link
                         className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
                         to={"/person"}
                       >
                         Popüler Kişiler
-                      </NavLink>
+                      </Link>
                     </li>
                   </ul>
                 </div>

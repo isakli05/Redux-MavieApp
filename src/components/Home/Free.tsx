@@ -31,8 +31,8 @@ function Free() {
           <button
             onClick={() => handleClick(0, "movie")}
             className={`
-        ${activeIndex === 0 ? "bg-cyan-400 transition duration-500 ease-linear" : ""}
-        px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-l-xl  dark:bg-gray-700 dark:border-gray-600 dark:text-white `}
+        ${activeIndex === 0 ? "bg-cyan-400 transition duration-500 ease-linear" : "bg-white"}
+        px-4 py-2 text-sm font-medium text-gray-900  border border-gray-200 rounded-l-xl  dark:bg-gray-700 dark:border-gray-600 dark:text-white `}
           >
             Movies
           </button>
@@ -40,8 +40,8 @@ function Free() {
           <button
             onClick={() => handleClick(1, "tv")}
             className={`
-        ${activeIndex === 1 ? "bg-cyan-400 transition duration-500 ease-linear" : ""}
-        px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-r-xl  dark:bg-gray-700 dark:border-gray-600 dark:text-white `}
+        ${activeIndex === 1 ? "bg-cyan-400 transition duration-500 ease-linear" : "bg-white"}
+        px-4 py-2 text-sm font-medium text-gray-900  border border-gray-200 rounded-r-xl  dark:bg-gray-700 dark:border-gray-600 dark:text-white `}
           >
             Tv
           </button>
