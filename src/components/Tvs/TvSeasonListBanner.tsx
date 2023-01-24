@@ -10,7 +10,7 @@ function TvSeasonListBanner({ tv_id }: { tv_id: string }) {
   
   const [tvDetail,setTvDetail]=useState<TvDetails>()
   const id=tv_id.split("-")[0]
-  console.log(id);
+  
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(fetchTvDetail(tv_id));

@@ -17,7 +17,6 @@ function TvCredit({ id }: TvCreditsProps) {
   useEffect(() => {
     dispatch(fetchTvCredits(id!));
   }, []);
-console.log(tvCredits);
 
   
   return (
