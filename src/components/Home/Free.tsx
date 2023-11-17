@@ -15,7 +15,7 @@ function Free() {
   };
   useEffect(() => {
     axios(
-      `https://api.themoviedb.org/3/discover/${type}?api_key=a005a803cdec9237f52c2801d1f28661&watch_region=US&with_watch_monetization_types=free
+      `https://api.themoviedb.org/3/discover/${type}?api_key=f23d45e024dfa841dbe4c5648bd1a790&watch_region=US&with_watch_monetization_types=free
         `
     )
       .then((res) => res.data)

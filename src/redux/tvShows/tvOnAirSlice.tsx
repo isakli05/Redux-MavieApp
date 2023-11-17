@@ -21,7 +21,7 @@ export const fetchTvOnAir = createAsyncThunk(
   "fetchTvOnAir",
   async (page?: number) => {
     const res = await axios<Tvs>(
-      `https://api.themoviedb.org/3/tv/on_the_air?api_key=a005a803cdec9237f52c2801d1f28661&language=tr-TR&page=${page}&adult=false`
+      `https://api.themoviedb.org/3/tv/on_the_air?api_key=f23d45e024dfa841dbe4c5648bd1a790&language=tr-TR&page=${page}&adult=false`
     );
     return res.data;
   }

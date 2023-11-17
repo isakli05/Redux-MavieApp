@@ -20,13 +20,13 @@ const initialState: PopularPersonsState = {
 
 //server için&language=tr-TR&page=1
 //export const fetchPersons =getPopularPersonsAsync;
-// `https://api.themoviedb.org/3/movie/popular?api_key=a005a803cdec9237f52c2801d1f28661&language=tr-TR&page=${page}`
+// `https://api.themoviedb.org/3/movie/popular?api_key=f23d45e024dfa841dbe4c5648bd1a790&language=tr-TR&page=${page}`
 
 export const fetchPersons = createAsyncThunk(
   "fetchPersons",
   async (page?: number) => {
     const res = await axios<PopularPersons>(
-      `https://api.themoviedb.org/3/person/popular?api_key=a005a803cdec9237f52c2801d1f28661&language=tr-TR&page=${page}`
+      `https://api.themoviedb.org/3/person/popular?api_key=f23d45e024dfa841dbe4c5648bd1a790&language=tr-TR&page=${page}`
     );
     return res.data;
   }

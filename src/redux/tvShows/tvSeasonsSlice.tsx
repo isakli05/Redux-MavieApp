@@ -24,7 +24,7 @@ export const fetchTvSeasons = createAsyncThunk<TvSeasons,TvSeasonsParams>(
   "fetchTvSeasons",
   async (params) => {
     const res = await axios(     
-      `https://api.themoviedb.org/3/tv/${params.tv_id}/season/${params.season_number}?api_key=a005a803cdec9237f52c2801d1f28661&language=tr-TR&language=en-US` ,{
+      `https://api.themoviedb.org/3/tv/${params.tv_id}/season/${params.season_number}?api_key=f23d45e024dfa841dbe4c5648bd1a790&language=tr-TR&language=en-US` ,{
         params: {
             tv_id: params.tv_id,
             season_number:params.season_number

@@ -13,7 +13,7 @@ function MovieRecommendation({ id }: MovieRecommendationProps) {
 
   useEffect(() => {
     axios(
-      `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=a005a803cdec9237f52c2801d1f28661&language=en-US&page=1`
+      `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=f23d45e024dfa841dbe4c5648bd1a790&language=en-US&page=1`
     )
       .then((res) => res.data)
       .then((data) => setMovieRecom(data));

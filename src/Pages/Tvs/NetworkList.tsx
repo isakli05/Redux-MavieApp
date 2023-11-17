@@ -18,7 +18,7 @@ function NetworkList() {
 
     try {
       const response: AxiosResponse<TvNetwork> = await axios.get<TvNetwork>(
-        `https://api.themoviedb.org/3/discover/tv?api_key=a005a803cdec9237f52c2801d1f28661&language=tr-TR&with_networks=${net_id}`
+        `https://api.themoviedb.org/3/discover/tv?api_key=f23d45e024dfa841dbe4c5648bd1a790&language=tr-TR&with_networks=${net_id}`
       );
       setNetworkFilmList(response.data);
     } catch (err) {
@@ -34,7 +34,7 @@ function NetworkList() {
 
     try {
       const response: AxiosResponse<Network> = await axios.get<Network>(
-        `https://api.themoviedb.org/3/network/${net_id}?api_key=a005a803cdec9237f52c2801d1f28661&language=tr-TR`
+        `https://api.themoviedb.org/3/network/${net_id}?api_key=f23d45e024dfa841dbe4c5648bd1a790&language=tr-TR`
       );
       setNetwork(response.data);
     } catch (err) {

@@ -16,7 +16,7 @@ function Popular() {
   };
   useEffect(() => {
     axios(
-      `https://api.themoviedb.org/3/discover/movie?api_key=a005a803cdec9237f52c2801d1f28661&watch_region=US&${type}
+      `https://api.themoviedb.org/3/discover/movie?api_key=f23d45e024dfa841dbe4c5648bd1a790&watch_region=US&${type}
       `
     )
       .then((res) => res.data)

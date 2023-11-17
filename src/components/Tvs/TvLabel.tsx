@@ -9,7 +9,7 @@ function TvLabel() {
 
   useEffect(() => {
     axios(
-      `https://api.themoviedb.org/3/tv/${id}/keywords?api_key=a005a803cdec9237f52c2801d1f28661`
+      `https://api.themoviedb.org/3/tv/${id}/keywords?api_key=f23d45e024dfa841dbe4c5648bd1a790`
     )
       .then((res) => res.data)
       .then((data) => setTvLabel(data));
