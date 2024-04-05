@@ -45,14 +45,14 @@ export const moviesSlice = createSlice({
     builder.addCase(
       fetchMovies.fulfilled,
       (state, action: PayloadAction<Movies>) => {
-        state.data = { ...current(state), ...action.payload };
-        //console.log(state.data);
-        // console.log(current(state))
-
+        // Append the new movies to the existing list
+        state.data = { ...state.data, ...action.payload };
+    
         state.loading = "fulfilled";
         state.page++;
       }
     );
+    
     builder.addCase(fetchMovies.rejected, (state, action) => {
       state.error = "error fetching data";
       state.loading = "rejected";
