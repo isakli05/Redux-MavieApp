@@ -41,7 +41,7 @@ export const upcomingMoviesSlice = createSlice({
     builder.addCase(
       fetchUpcomingMovies.fulfilled,
       (state, action: PayloadAction<Movies>) => {
-        state.data = { ...current(state), ...action.payload };
+        state.data = { ...state.data, ...action.payload };
         state.loading = "fulfilled";
         state.page++;
       }
